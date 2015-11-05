@@ -18,6 +18,7 @@ Public Class Visor
             Next
         End If
         pboxFoto.Image = v.Get_Foto(0)
+
     End Sub
 
     Private Sub tsAbrir_Click(sender As Object, e As EventArgs) Handles tsAnyadir.Click
