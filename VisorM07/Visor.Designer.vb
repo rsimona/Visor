@@ -48,9 +48,15 @@ Partial Class Visor
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
+        Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
+        Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'msArchivo
@@ -236,6 +242,7 @@ Partial Class Visor
         '
         'pboxFoto
         '
+        Me.pboxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pboxFoto.Location = New System.Drawing.Point(121, 40)
         Me.pboxFoto.Name = "pboxFoto"
         Me.pboxFoto.Size = New System.Drawing.Size(575, 330)
@@ -248,11 +255,42 @@ Partial Class Visor
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
+        'pbMiniaturaActual
+        '
+        Me.pbMiniaturaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbMiniaturaActual.Location = New System.Drawing.Point(335, 397)
+        Me.pbMiniaturaActual.Name = "pbMiniaturaActual"
+        Me.pbMiniaturaActual.Size = New System.Drawing.Size(153, 88)
+        Me.pbMiniaturaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaActual.TabIndex = 3
+        Me.pbMiniaturaActual.TabStop = False
+        '
+        'pbMiniaturaAnterior
+        '
+        Me.pbMiniaturaAnterior.Location = New System.Drawing.Point(121, 397)
+        Me.pbMiniaturaAnterior.Name = "pbMiniaturaAnterior"
+        Me.pbMiniaturaAnterior.Size = New System.Drawing.Size(153, 88)
+        Me.pbMiniaturaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaAnterior.TabIndex = 4
+        Me.pbMiniaturaAnterior.TabStop = False
+        '
+        'pbMiniaturaSiguiente
+        '
+        Me.pbMiniaturaSiguiente.Location = New System.Drawing.Point(543, 397)
+        Me.pbMiniaturaSiguiente.Name = "pbMiniaturaSiguiente"
+        Me.pbMiniaturaSiguiente.Size = New System.Drawing.Size(153, 88)
+        Me.pbMiniaturaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaSiguiente.TabIndex = 5
+        Me.pbMiniaturaSiguiente.TabStop = False
+        '
         'Visor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 561)
+        Me.Controls.Add(Me.pbMiniaturaSiguiente)
+        Me.Controls.Add(Me.pbMiniaturaAnterior)
+        Me.Controls.Add(Me.pbMiniaturaActual)
         Me.Controls.Add(Me.pboxFoto)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.msArchivo)
@@ -265,6 +303,9 @@ Partial Class Visor
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -294,4 +335,7 @@ Partial Class Visor
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents pboxFoto As PictureBox
     Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents pbMiniaturaActual As PictureBox
+    Friend WithEvents pbMiniaturaAnterior As PictureBox
+    Friend WithEvents pbMiniaturaSiguiente As PictureBox
 End Class

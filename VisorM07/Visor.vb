@@ -7,7 +7,12 @@ Public Class Visor
         abrirFotos()
     End Sub
 
+    Private Sub tsAbrir_Click(sender As Object, e As EventArgs) Handles tsAnyadir.Click
+        abrirFotos()
+    End Sub
+
     Private Sub abrirFotos()
+
         OpenFileDialog1.Title = "Seleccionar imágenes a importar al visor"
         OpenFileDialog1.Filter = "Imagen|*.jpg;*.gif;*.png"
         OpenFileDialog1.FileName = ""
@@ -17,12 +22,10 @@ Public Class Visor
                 v.Agregar_Foto(Bitmap.FromFile(foto))
             Next
         End If
-        pboxFoto.Image = v.Get_Foto(0)
+        pboxFoto.Image = v.Get_Foto(v.Num_Fotos - 1)
+        pbMiniaturaActual.Image = v.Get_Foto(v.Num_Fotos - 1)
+        pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Fotos - 2)
 
-    End Sub
-
-    Private Sub tsAbrir_Click(sender As Object, e As EventArgs) Handles tsAnyadir.Click
-        abrirFotos()
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
