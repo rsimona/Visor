@@ -242,7 +242,6 @@ Partial Class Visor
         '
         'pboxFoto
         '
-        Me.pboxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pboxFoto.Location = New System.Drawing.Point(121, 40)
         Me.pboxFoto.Name = "pboxFoto"
         Me.pboxFoto.Size = New System.Drawing.Size(575, 330)
@@ -257,7 +256,6 @@ Partial Class Visor
         '
         'pbMiniaturaActual
         '
-        Me.pbMiniaturaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pbMiniaturaActual.Location = New System.Drawing.Point(335, 397)
         Me.pbMiniaturaActual.Name = "pbMiniaturaActual"
         Me.pbMiniaturaActual.Size = New System.Drawing.Size(153, 88)
