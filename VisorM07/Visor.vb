@@ -34,20 +34,22 @@ Public Class Visor
     End Sub
 
     Private Sub fotoAnterior()
-        v.Prev_Foto()
-        pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-        pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
+        If Not pbMiniaturaAnterior.Image Is Nothing Then
+            v.Prev_Foto()
+            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
+            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
 
-        If v.Num_Actual - 1 >= 0 Then
-            pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
-        Else
-            pbMiniaturaAnterior.Image = Nothing
-        End If
+            If v.Num_Actual - 1 >= 0 Then
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+            Else
+                pbMiniaturaAnterior.Image = Nothing
+            End If
 
-        If v.Num_Actual + 1 < v.Num_Fotos Then
-            pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
-        Else
-            pbMiniaturaSiguiente.Image = Nothing
+            If v.Num_Actual + 1 < v.Num_Fotos Then
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            Else
+                pbMiniaturaSiguiente.Image = Nothing
+            End If
         End If
     End Sub
 
@@ -60,20 +62,22 @@ Public Class Visor
     End Sub
 
     Private Sub fotoSiguiente()
-        v.Next_Foto()
-        pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-        pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
+        If Not pbMiniaturaSiguiente.Image Is Nothing Then
+            v.Next_Foto()
+            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
+            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
 
-        If v.Num_Actual - 1 >= 0 Then
-            pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
-        Else
-            pbMiniaturaAnterior.Image = Nothing
-        End If
+            If v.Num_Actual - 1 >= 0 Then
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+            Else
+                pbMiniaturaAnterior.Image = Nothing
+            End If
 
-        If v.Num_Actual + 1 < v.Num_Fotos Then
-            pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
-        Else
-            pbMiniaturaSiguiente.Image = Nothing
+            If v.Num_Actual + 1 < v.Num_Fotos Then
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            Else
+                pbMiniaturaSiguiente.Image = Nothing
+            End If
         End If
     End Sub
 
