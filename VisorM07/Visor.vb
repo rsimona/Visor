@@ -33,26 +33,6 @@ Public Class Visor
         Me.Close()
     End Sub
 
-    Private Sub fotoAnterior()
-        If Not pbMiniaturaAnterior.Image Is Nothing Then
-            v.Prev_Foto()
-            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
-
-            If v.Num_Actual - 1 >= 0 Then
-                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
-            Else
-                pbMiniaturaAnterior.Image = Nothing
-            End If
-
-            If v.Num_Actual + 1 < v.Num_Fotos Then
-                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
-            Else
-                pbMiniaturaSiguiente.Image = Nothing
-            End If
-        End If
-    End Sub
-
     Private Sub tsAnterior_Click(sender As Object, e As EventArgs) Handles tsAnterior.Click
         fotoAnterior()
     End Sub
@@ -61,9 +41,9 @@ Public Class Visor
         fotoAnterior()
     End Sub
 
-    Private Sub fotoSiguiente()
-        If Not pbMiniaturaSiguiente.Image Is Nothing Then
-            v.Next_Foto()
+    Private Sub fotoAnterior()
+        If Not pbMiniaturaAnterior.Image Is Nothing Then
+            v.Prev_Foto()
             pboxFoto.Image = v.Get_Foto(v.Num_Actual)
             pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
 
@@ -87,6 +67,26 @@ Public Class Visor
 
     Private Sub ImagenSiguienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImagenSiguienteToolStripMenuItem.Click
         fotoSiguiente()
+    End Sub
+
+    Private Sub fotoSiguiente()
+        If Not pbMiniaturaSiguiente.Image Is Nothing Then
+            v.Next_Foto()
+            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
+            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
+
+            If v.Num_Actual - 1 >= 0 Then
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+            Else
+                pbMiniaturaAnterior.Image = Nothing
+            End If
+
+            If v.Num_Actual + 1 < v.Num_Fotos Then
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            Else
+                pbMiniaturaSiguiente.Image = Nothing
+            End If
+        End If
     End Sub
 
     Private Sub pbMiniaturaAnterior_Click(sender As Object, e As EventArgs) Handles pbMiniaturaAnterior.Click
@@ -117,5 +117,33 @@ Public Class Visor
 
     Private Sub pbMiniaturaSiguiente_MouseEnter(sender As Object, e As EventArgs) Handles pbMiniaturaSiguiente.MouseEnter
         manejarMiniatura(sender)
+    End Sub
+
+    Private Sub RotarImagenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RotarImagenToolStripMenuItem.Click
+        rotarDerecha()
+    End Sub
+
+    Private Sub tsRotarDerecha_Click(sender As Object, e As EventArgs) Handles tsRotarDerecha.Click
+        rotarDerecha()
+    End Sub
+
+    Private Sub rotarDerecha()
+        v.rotar_hor()
+        pboxFoto.Image = v.Foto_Actual
+        pbMiniaturaActual.Image = v.Foto_Actual
+    End Sub
+
+    Private Sub tsRotarIzquierda_Click(sender As Object, e As EventArgs) Handles tsRotarIzquierda.Click
+        rotarIzquierda()
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        rotarIzquierda()
+    End Sub
+
+    Public Sub rotarIzquierda()
+        v.rotar_antihor()
+        pboxFoto.Image = v.Foto_Actual
+        pbMiniaturaActual.Image = v.Foto_Actual
     End Sub
 End Class
