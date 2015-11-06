@@ -146,4 +146,29 @@ Public Class Visor
         pboxFoto.Image = v.Foto_Actual
         pbMiniaturaActual.Image = v.Foto_Actual
     End Sub
+
+    Private Sub tsZoomAcercar_Click(sender As Object, e As EventArgs) Handles tsZoomAcercar.Click
+        zoomAcercar()
+    End Sub
+
+    Private Sub ZoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZoomToolStripMenuItem.Click
+        zoomAcercar()
+    End Sub
+
+    Private Sub zoomAcercar()
+        pboxFoto.Image = v.Zoom(1.25)
+    End Sub
+
+    Private Sub tsZoomAlejar_Click(sender As Object, e As EventArgs) Handles tsZoomAlejar.Click
+        zoomAlejar()
+    End Sub
+
+    Private Sub ZoomAlejarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ZoomAlejarToolStripMenuItem.Click
+        zoomAlejar()
+    End Sub
+
+    Private Sub zoomAlejar()
+        pboxFoto.Image = v.Zoom(0.75)
+    End Sub
+
 End Class
