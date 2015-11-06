@@ -81,15 +81,15 @@ Partial Class Visor
         Me.AbrirToolStripMenuItem.Image = CType(resources.GetObject("AbrirToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
         Me.AbrirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.AbrirToolStripMenuItem.Text = "A&nyadir foto(s)"
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.AbrirToolStripMenuItem.Text = "A&ñadir foto(s)"
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         Me.SalirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.SalirToolStripMenuItem.Text = "&Salir"
         '
         'VistaToolStripMenuItem

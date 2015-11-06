@@ -2,6 +2,8 @@
 
 Public Class Visor
     Dim v As VisorFoto = New VisorFoto(575, 330)
+    Dim drag As Boolean = False
+    Dim offset As Point
 
     Private Sub AbrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirToolStripMenuItem.Click
         abrirFotos()
@@ -21,12 +23,12 @@ Public Class Visor
             For Each foto In OpenFileDialog1.FileNames
                 v.Agregar_Foto(Bitmap.FromFile(foto))
             Next
-        End If
-        v.Num_Actual = v.Num_Fotos - 1
-        pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-        pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
-        pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
 
+            v.Num_Actual = v.Num_Fotos - 1
+            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
+            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
+            pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+        End If
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -106,7 +108,6 @@ Public Class Visor
             pb.Enabled = True
             pb.Cursor = Cursors.Hand
         Else
-            'pb.Enabled = False
             pb.Cursor = Cursors.Default
         End If
     End Sub
@@ -171,4 +172,20 @@ Public Class Visor
         pboxFoto.Image = v.Zoom(0.75)
     End Sub
 
+    Private Sub pboxFoto_MouseDown(sender As Object, e As MouseEventArgs) Handles pboxFoto.MouseDown
+        drag = True
+        offset = e.Location
+        pboxFoto.Cursor = Cursors.NoMove2D
+    End Sub
+
+    Private Sub pboxFoto_MouseMove(sender As Object, e As MouseEventArgs) Handles pboxFoto.MouseMove
+        If drag Then
+            pboxFoto.Image = v.Despl(e.Location.X + pboxFoto.Location.X - offset.X, e.Location.Y + pboxFoto.Location.Y - offset.Y)
+        End If
+    End Sub
+
+    Private Sub pboxFoto_MouseUp(sender As Object, e As MouseEventArgs) Handles pboxFoto.MouseUp
+        drag = False
+        pboxFoto.Cursor = Cursors.Default
+    End Sub
 End Class
