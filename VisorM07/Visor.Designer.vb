@@ -265,6 +265,7 @@ Partial Class Visor
         '
         'pbMiniaturaAnterior
         '
+        Me.pbMiniaturaAnterior.Cursor = System.Windows.Forms.Cursors.Default
         Me.pbMiniaturaAnterior.Location = New System.Drawing.Point(121, 397)
         Me.pbMiniaturaAnterior.Name = "pbMiniaturaAnterior"
         Me.pbMiniaturaAnterior.Size = New System.Drawing.Size(153, 88)

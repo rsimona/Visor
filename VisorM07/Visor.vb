@@ -84,4 +84,34 @@ Public Class Visor
     Private Sub ImagenSiguienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImagenSiguienteToolStripMenuItem.Click
         fotoSiguiente()
     End Sub
+
+    Private Sub pbMiniaturaAnterior_Click(sender As Object, e As EventArgs) Handles pbMiniaturaAnterior.Click
+        If Not pbMiniaturaAnterior.Image Is Nothing Then
+            fotoAnterior()
+        End If
+    End Sub
+
+    Private Sub pbMiniaturaSiguiente_Click(sender As Object, e As EventArgs) Handles pbMiniaturaSiguiente.Click
+        If Not pbMiniaturaSiguiente.Image Is Nothing Then
+            fotoSiguiente()
+        End If
+    End Sub
+
+    Private Sub manejarMiniatura(pb As PictureBox)
+        If Not pb.Image Is Nothing Then
+            pb.Enabled = True
+            pb.Cursor = Cursors.Hand
+        Else
+            'pb.Enabled = False
+            pb.Cursor = Cursors.Default
+        End If
+    End Sub
+
+    Private Sub pbMiniaturaAnterior_MouseEnter(sender As Object, e As EventArgs) Handles pbMiniaturaAnterior.MouseEnter
+        manejarMiniatura(sender)
+    End Sub
+
+    Private Sub pbMiniaturaSiguiente_MouseEnter(sender As Object, e As EventArgs) Handles pbMiniaturaSiguiente.MouseEnter
+        manejarMiniatura(sender)
+    End Sub
 End Class
