@@ -34,7 +34,9 @@ Public Class Visor
             pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
             pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
 
-            pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+            If v.Num_Fotos > 1 Then
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+            End If
 
             ImagenSiguienteToolStripMenuItem.Enabled = True
             ImagenAnteriorToolStripMenuItem.Enabled = True
@@ -42,7 +44,6 @@ Public Class Visor
             RotarIzquiedaToolStripMenuItem.Enabled = True
             ZoomAlejarToolStripMenuItem.Enabled = True
             ZoomToolStripMenuItem.Enabled = True
-            EscalaRealToolStripMenuItem.Enabled = True
             AjustarTamañoAVistaToolStripMenuItem.Enabled = True
 
             tsAnterior.Enabled = True
@@ -51,7 +52,6 @@ Public Class Visor
             tsRotarIzquierda.Enabled = True
             tsZoomAlejar.Enabled = True
             tsZoomAcercar.Enabled = True
-            tsEscalaReal.Enabled = True
             tsExtender.Enabled = True
 
             ImagenSiguienteContextual.Enabled = True
@@ -60,7 +60,6 @@ Public Class Visor
             RotarIzquierdaContextual.Enabled = True
             ZoomAlejarContextual.Enabled = True
             ZoomAcercarContextual.Enabled = True
-            EscalaRealContextual.Enabled = True
             AjustarTamañoAVistaContextual.Enabled = True
         End If
     End Sub
@@ -239,11 +238,11 @@ Public Class Visor
         pboxFoto.Cursor = Cursors.Default
     End Sub
 
-    Private Sub tsEscalaReal_Click(sender As Object, e As EventArgs) Handles tsEscalaReal.Click
+    Private Sub tsEscalaReal_Click(sender As Object, e As EventArgs)
         EscalaReal()
     End Sub
 
-    Private Sub EscalaRealToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EscalaRealToolStripMenuItem.Click
+    Private Sub EscalaRealToolStripMenuItem_Click(sender As Object, e As EventArgs)
         EscalaReal()
     End Sub
 
@@ -288,7 +287,6 @@ Public Class Visor
             RotarIzquiedaToolStripMenuItem.Enabled = False
             ZoomAlejarToolStripMenuItem.Enabled = False
             ZoomToolStripMenuItem.Enabled = False
-            EscalaRealToolStripMenuItem.Enabled = False
             AjustarTamañoAVistaToolStripMenuItem.Enabled = False
 
             tsAnterior.Enabled = False
@@ -297,7 +295,6 @@ Public Class Visor
             tsRotarIzquierda.Enabled = False
             tsZoomAlejar.Enabled = False
             tsZoomAcercar.Enabled = False
-            tsEscalaReal.Enabled = False
             tsExtender.Enabled = False
 
             ImagenSiguienteContextual.Enabled = False
@@ -306,7 +303,6 @@ Public Class Visor
             RotarIzquierdaContextual.Enabled = False
             ZoomAlejarContextual.Enabled = False
             ZoomAcercarContextual.Enabled = False
-            EscalaRealContextual.Enabled = False
             AjustarTamañoAVistaContextual.Enabled = False
         End If
     End Sub
@@ -339,7 +335,7 @@ Public Class Visor
         zoomAcercar()
     End Sub
 
-    Private Sub EscalaRealContextual_Click(sender As Object, e As EventArgs) Handles EscalaRealContextual.Click
+    Private Sub EscalaRealContextual_Click(sender As Object, e As EventArgs)
         EscalaReal()
     End Sub
 
