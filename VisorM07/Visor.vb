@@ -13,6 +13,10 @@ Public Class Visor
         abrirFotos()
     End Sub
 
+    Private Sub btnAnyadirImagen_Click(sender As Object, e As EventArgs) Handles btnAnyadirImagen.Click
+        abrirFotos()
+    End Sub
+
     Private Sub abrirFotos()
 
         OpenFileDialog1.Title = "Seleccionar imágenes a importar al visor"
@@ -20,6 +24,7 @@ Public Class Visor
         OpenFileDialog1.FileName = ""
 
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+            btnAnyadirImagen.Visible = False
             For Each foto In OpenFileDialog1.FileNames
                 v.Agregar_Foto(Bitmap.FromFile(foto))
             Next
@@ -188,4 +193,30 @@ Public Class Visor
         drag = False
         pboxFoto.Cursor = Cursors.Default
     End Sub
+
+    Private Sub tsEscalaReal_Click(sender As Object, e As EventArgs) Handles tsEscalaReal.Click
+        pboxFoto.Image = v.Zoom(0)
+    End Sub
+
+    Private Sub EscalaRealToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EscalaRealToolStripMenuItem.Click
+        pboxFoto.Image = v.Zoom(0)
+    End Sub
+
+    Private Sub tsExtender_Click(sender As Object, e As EventArgs) Handles tsExtender.Click
+        pboxFoto.Image = v.Foto_Actual()
+    End Sub
+
+    Private Sub AjustarTamañoAVistaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjustarTamañoAVistaToolStripMenuItem.Click
+        pboxFoto.Image = v.Foto_Actual()
+    End Sub
+
+    Private Sub btnAnyadirImagen_MouseEnter(sender As Object, e As EventArgs) Handles btnAnyadirImagen.MouseEnter
+        btnAnyadirImagen.FlatAppearance.BorderSize = 1
+        btnAnyadirImagen.FlatAppearance.BorderColor = Color.DodgerBlue
+    End Sub
+
+    Private Sub btnAnyadirImagen_MouseLeave(sender As Object, e As EventArgs) Handles btnAnyadirImagen.MouseLeave
+        btnAnyadirImagen.FlatAppearance.BorderSize = 0
+    End Sub
+
 End Class

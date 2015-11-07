@@ -35,6 +35,8 @@ Partial Class Visor
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EscalaRealToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AjustarTamañoAVistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -44,6 +46,8 @@ Partial Class Visor
         Me.tsRotarDerecha = New System.Windows.Forms.ToolStripButton()
         Me.tsZoomAlejar = New System.Windows.Forms.ToolStripButton()
         Me.tsZoomAcercar = New System.Windows.Forms.ToolStripButton()
+        Me.tsEscalaReal = New System.Windows.Forms.ToolStripButton()
+        Me.tsExtender = New System.Windows.Forms.ToolStripButton()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
@@ -51,6 +55,7 @@ Partial Class Visor
         Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
         Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
         Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
+        Me.btnAnyadirImagen = New System.Windows.Forms.Button()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,7 +99,7 @@ Partial Class Visor
         '
         'VistaToolStripMenuItem
         '
-        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.ToolStripMenuItem1, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem})
+        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.ToolStripMenuItem1, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.EscalaRealToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem})
         Me.VistaToolStripMenuItem.Name = "VistaToolStripMenuItem"
         Me.VistaToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.VistaToolStripMenuItem.Text = "&Vista"
@@ -146,12 +151,26 @@ Partial Class Visor
         Me.ZoomAlejarToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
         Me.ZoomAlejarToolStripMenuItem.Text = "Z&oom Alejar"
         '
+        'EscalaRealToolStripMenuItem
+        '
+        Me.EscalaRealToolStripMenuItem.Image = CType(resources.GetObject("EscalaRealToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EscalaRealToolStripMenuItem.Name = "EscalaRealToolStripMenuItem"
+        Me.EscalaRealToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.EscalaRealToolStripMenuItem.Text = "&Escala Real"
+        '
+        'AjustarTamañoAVistaToolStripMenuItem
+        '
+        Me.AjustarTamañoAVistaToolStripMenuItem.Image = CType(resources.GetObject("AjustarTamañoAVistaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AjustarTamañoAVistaToolStripMenuItem.Name = "AjustarTamañoAVistaToolStripMenuItem"
+        Me.AjustarTamañoAVistaToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.AjustarTamañoAVistaToolStripMenuItem.Text = "Ajustar tamaño a Vista"
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.ToolStripButton4, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.ToolStripButton4, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsEscalaReal, Me.tsExtender})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 524)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 1, 0)
@@ -235,6 +254,26 @@ Partial Class Visor
         Me.tsZoomAcercar.Text = "ToolStripButton8"
         Me.tsZoomAcercar.ToolTipText = "Zoom Acercar"
         '
+        'tsEscalaReal
+        '
+        Me.tsEscalaReal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsEscalaReal.Image = CType(resources.GetObject("tsEscalaReal.Image"), System.Drawing.Image)
+        Me.tsEscalaReal.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsEscalaReal.Name = "tsEscalaReal"
+        Me.tsEscalaReal.Size = New System.Drawing.Size(34, 34)
+        Me.tsEscalaReal.Text = "ToolStripButton1"
+        Me.tsEscalaReal.ToolTipText = "Escala real"
+        '
+        'tsExtender
+        '
+        Me.tsExtender.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsExtender.Image = CType(resources.GetObject("tsExtender.Image"), System.Drawing.Image)
+        Me.tsExtender.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsExtender.Name = "tsExtender"
+        Me.tsExtender.Size = New System.Drawing.Size(34, 34)
+        Me.tsExtender.Text = "ToolStripButton2"
+        Me.tsExtender.ToolTipText = "Ajustar tamaño a vista"
+        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -245,6 +284,7 @@ Partial Class Visor
         Me.pboxFoto.Location = New System.Drawing.Point(121, 40)
         Me.pboxFoto.Name = "pboxFoto"
         Me.pboxFoto.Size = New System.Drawing.Size(575, 330)
+        Me.pboxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pboxFoto.TabIndex = 2
         Me.pboxFoto.TabStop = False
         '
@@ -256,6 +296,8 @@ Partial Class Visor
         '
         'pbMiniaturaActual
         '
+        Me.pbMiniaturaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbMiniaturaActual.Image = CType(resources.GetObject("pbMiniaturaActual.Image"), System.Drawing.Image)
         Me.pbMiniaturaActual.Location = New System.Drawing.Point(335, 397)
         Me.pbMiniaturaActual.Name = "pbMiniaturaActual"
         Me.pbMiniaturaActual.Size = New System.Drawing.Size(153, 88)
@@ -282,11 +324,29 @@ Partial Class Visor
         Me.pbMiniaturaSiguiente.TabIndex = 5
         Me.pbMiniaturaSiguiente.TabStop = False
         '
+        'btnAnyadirImagen
+        '
+        Me.btnAnyadirImagen.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnAnyadirImagen.FlatAppearance.BorderSize = 0
+        Me.btnAnyadirImagen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btnAnyadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btnAnyadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnyadirImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnyadirImagen.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.btnAnyadirImagen.Image = CType(resources.GetObject("btnAnyadirImagen.Image"), System.Drawing.Image)
+        Me.btnAnyadirImagen.Location = New System.Drawing.Point(217, 69)
+        Me.btnAnyadirImagen.Name = "btnAnyadirImagen"
+        Me.btnAnyadirImagen.Size = New System.Drawing.Size(400, 275)
+        Me.btnAnyadirImagen.TabIndex = 6
+        Me.btnAnyadirImagen.Text = "Clic para añadir imágenes"
+        Me.btnAnyadirImagen.UseVisualStyleBackColor = False
+        '
         'Visor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 561)
+        Me.Controls.Add(Me.btnAnyadirImagen)
         Me.Controls.Add(Me.pbMiniaturaSiguiente)
         Me.Controls.Add(Me.pbMiniaturaAnterior)
         Me.Controls.Add(Me.pbMiniaturaActual)
@@ -337,4 +397,9 @@ Partial Class Visor
     Friend WithEvents pbMiniaturaActual As PictureBox
     Friend WithEvents pbMiniaturaAnterior As PictureBox
     Friend WithEvents pbMiniaturaSiguiente As PictureBox
+    Friend WithEvents EscalaRealToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AjustarTamañoAVistaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsEscalaReal As ToolStripButton
+    Friend WithEvents tsExtender As ToolStripButton
+    Friend WithEvents btnAnyadirImagen As Button
 End Class
