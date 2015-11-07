@@ -32,7 +32,7 @@ Partial Class Visor
         Me.ImagenSiguienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagenAnteriorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RotarImagenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RotarIzquiedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EscalaRealToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,7 +41,7 @@ Partial Class Visor
         Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsAnterior = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.tsSiguiente = New System.Windows.Forms.ToolStripButton()
         Me.tsRotarIzquierda = New System.Windows.Forms.ToolStripButton()
         Me.tsRotarDerecha = New System.Windows.Forms.ToolStripButton()
         Me.tsZoomAlejar = New System.Windows.Forms.ToolStripButton()
@@ -59,6 +59,16 @@ Partial Class Visor
         Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
         Me.btnAnyadirImagen = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AñadirImagenContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImagenSiguienteContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImagenAnteriorContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RotarDerechaContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RotarIzquierdaContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZoomAlejarContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZoomAcercarContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EscalaRealContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AjustarTamañoAVistaContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,6 +78,7 @@ Partial Class Visor
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'msArchivo
@@ -105,7 +116,7 @@ Partial Class Visor
         '
         'VistaToolStripMenuItem
         '
-        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.ToolStripMenuItem1, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.EscalaRealToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem})
+        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.RotarIzquiedaToolStripMenuItem, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.EscalaRealToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem})
         Me.VistaToolStripMenuItem.Name = "VistaToolStripMenuItem"
         Me.VistaToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.VistaToolStripMenuItem.Text = "&Vista"
@@ -134,12 +145,12 @@ Partial Class Visor
         Me.RotarImagenToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
         Me.RotarImagenToolStripMenuItem.Text = "Rotar &derecha"
         '
-        'ToolStripMenuItem1
+        'RotarIzquiedaToolStripMenuItem
         '
-        Me.ToolStripMenuItem1.Image = CType(resources.GetObject("ToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(209, 22)
-        Me.ToolStripMenuItem1.Text = "Rotar &izquierda"
+        Me.RotarIzquiedaToolStripMenuItem.Image = CType(resources.GetObject("RotarIzquiedaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.RotarIzquiedaToolStripMenuItem.Name = "RotarIzquiedaToolStripMenuItem"
+        Me.RotarIzquiedaToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.RotarIzquiedaToolStripMenuItem.Text = "Rotar &izquierda"
         '
         'ZoomToolStripMenuItem
         '
@@ -176,7 +187,7 @@ Partial Class Visor
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.ToolStripButton4, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsEscalaReal, Me.tsExtender})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.tsSiguiente, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsEscalaReal, Me.tsExtender})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 524)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 1, 0)
@@ -210,15 +221,15 @@ Partial Class Visor
         Me.tsAnterior.Text = "ToolStripButton3"
         Me.tsAnterior.ToolTipText = "Ver foto anterior"
         '
-        'ToolStripButton4
+        'tsSiguiente
         '
-        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(34, 34)
-        Me.ToolStripButton4.Text = "ToolStripButton4"
-        Me.ToolStripButton4.ToolTipText = "Ver foto siguiente"
+        Me.tsSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsSiguiente.Image = CType(resources.GetObject("tsSiguiente.Image"), System.Drawing.Image)
+        Me.tsSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsSiguiente.Name = "tsSiguiente"
+        Me.tsSiguiente.Size = New System.Drawing.Size(34, 34)
+        Me.tsSiguiente.Text = "ToolStripButton4"
+        Me.tsSiguiente.ToolTipText = "Ver foto siguiente"
         '
         'tsRotarIzquierda
         '
@@ -294,7 +305,7 @@ Partial Class Visor
         'pbFlechaSiguiente
         '
         Me.pbFlechaSiguiente.Image = Global.VisorM07.My.Resources.Resources.flecha_seguent_gris
-        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(710, 28)
+        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(721, 28)
         Me.pbFlechaSiguiente.Name = "pbFlechaSiguiente"
         Me.pbFlechaSiguiente.Size = New System.Drawing.Size(57, 88)
         Me.pbFlechaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -387,11 +398,81 @@ Partial Class Visor
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirImagenContextual, Me.ImagenSiguienteContextual, Me.ImagenAnteriorContextual, Me.RotarDerechaContextual, Me.RotarIzquierdaContextual, Me.ZoomAlejarContextual, Me.ZoomAcercarContextual, Me.EscalaRealContextual, Me.AjustarTamañoAVistaContextual})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(192, 202)
+        '
+        'AñadirImagenContextual
+        '
+        Me.AñadirImagenContextual.Image = CType(resources.GetObject("AñadirImagenContextual.Image"), System.Drawing.Image)
+        Me.AñadirImagenContextual.Name = "AñadirImagenContextual"
+        Me.AñadirImagenContextual.Size = New System.Drawing.Size(191, 22)
+        Me.AñadirImagenContextual.Text = "Añadir imagen"
+        '
+        'ImagenSiguienteContextual
+        '
+        Me.ImagenSiguienteContextual.Image = CType(resources.GetObject("ImagenSiguienteContextual.Image"), System.Drawing.Image)
+        Me.ImagenSiguienteContextual.Name = "ImagenSiguienteContextual"
+        Me.ImagenSiguienteContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ImagenSiguienteContextual.Text = "Imagen Siguiente"
+        '
+        'ImagenAnteriorContextual
+        '
+        Me.ImagenAnteriorContextual.Image = CType(resources.GetObject("ImagenAnteriorContextual.Image"), System.Drawing.Image)
+        Me.ImagenAnteriorContextual.Name = "ImagenAnteriorContextual"
+        Me.ImagenAnteriorContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ImagenAnteriorContextual.Text = "Imagen Anterior"
+        '
+        'RotarDerechaContextual
+        '
+        Me.RotarDerechaContextual.Image = CType(resources.GetObject("RotarDerechaContextual.Image"), System.Drawing.Image)
+        Me.RotarDerechaContextual.Name = "RotarDerechaContextual"
+        Me.RotarDerechaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.RotarDerechaContextual.Text = "Rotar derecha"
+        '
+        'RotarIzquierdaContextual
+        '
+        Me.RotarIzquierdaContextual.Image = CType(resources.GetObject("RotarIzquierdaContextual.Image"), System.Drawing.Image)
+        Me.RotarIzquierdaContextual.Name = "RotarIzquierdaContextual"
+        Me.RotarIzquierdaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.RotarIzquierdaContextual.Text = "Rotar izquierda"
+        '
+        'ZoomAlejarContextual
+        '
+        Me.ZoomAlejarContextual.Image = CType(resources.GetObject("ZoomAlejarContextual.Image"), System.Drawing.Image)
+        Me.ZoomAlejarContextual.Name = "ZoomAlejarContextual"
+        Me.ZoomAlejarContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ZoomAlejarContextual.Text = "Zoom Alejar"
+        '
+        'ZoomAcercarContextual
+        '
+        Me.ZoomAcercarContextual.Image = CType(resources.GetObject("ZoomAcercarContextual.Image"), System.Drawing.Image)
+        Me.ZoomAcercarContextual.Name = "ZoomAcercarContextual"
+        Me.ZoomAcercarContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ZoomAcercarContextual.Text = "Zoom Acercar"
+        '
+        'EscalaRealContextual
+        '
+        Me.EscalaRealContextual.Image = CType(resources.GetObject("EscalaRealContextual.Image"), System.Drawing.Image)
+        Me.EscalaRealContextual.Name = "EscalaRealContextual"
+        Me.EscalaRealContextual.Size = New System.Drawing.Size(191, 22)
+        Me.EscalaRealContextual.Text = "Escala real"
+        '
+        'AjustarTamañoAVistaContextual
+        '
+        Me.AjustarTamañoAVistaContextual.Image = CType(resources.GetObject("AjustarTamañoAVistaContextual.Image"), System.Drawing.Image)
+        Me.AjustarTamañoAVistaContextual.Name = "AjustarTamañoAVistaContextual"
+        Me.AjustarTamañoAVistaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.AjustarTamañoAVistaContextual.Text = "Ajustar tamaño a vista"
+        '
         'Visor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(822, 561)
+        Me.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnAnyadirImagen)
         Me.Controls.Add(Me.pboxFoto)
@@ -412,6 +493,7 @@ Partial Class Visor
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -426,13 +508,13 @@ Partial Class Visor
     Friend WithEvents ImagenAnteriorToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RotarImagenToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ZoomToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents RotarIzquiedaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ZoomAlejarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents tsAnyadir As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents tsAnterior As ToolStripButton
-    Friend WithEvents ToolStripButton4 As ToolStripButton
+    Friend WithEvents tsSiguiente As ToolStripButton
     Friend WithEvents tsRotarIzquierda As ToolStripButton
     Friend WithEvents tsRotarDerecha As ToolStripButton
     Friend WithEvents tsZoomAlejar As ToolStripButton
@@ -452,4 +534,14 @@ Partial Class Visor
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents pbFlechaAnterior As PictureBox
     Friend WithEvents pbFlechaSiguiente As PictureBox
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents AñadirImagenContextual As ToolStripMenuItem
+    Friend WithEvents ImagenSiguienteContextual As ToolStripMenuItem
+    Friend WithEvents ImagenAnteriorContextual As ToolStripMenuItem
+    Friend WithEvents RotarDerechaContextual As ToolStripMenuItem
+    Friend WithEvents RotarIzquierdaContextual As ToolStripMenuItem
+    Friend WithEvents ZoomAlejarContextual As ToolStripMenuItem
+    Friend WithEvents ZoomAcercarContextual As ToolStripMenuItem
+    Friend WithEvents EscalaRealContextual As ToolStripMenuItem
+    Friend WithEvents AjustarTamañoAVistaContextual As ToolStripMenuItem
 End Class

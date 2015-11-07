@@ -35,6 +35,33 @@ Public Class Visor
             pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
 
             pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+
+            ImagenSiguienteToolStripMenuItem.Enabled = True
+            ImagenAnteriorToolStripMenuItem.Enabled = True
+            RotarImagenToolStripMenuItem.Enabled = True
+            RotarIzquiedaToolStripMenuItem.Enabled = True
+            ZoomAlejarToolStripMenuItem.Enabled = True
+            ZoomToolStripMenuItem.Enabled = True
+            EscalaRealToolStripMenuItem.Enabled = True
+            AjustarTamañoAVistaToolStripMenuItem.Enabled = True
+
+            tsAnterior.Enabled = True
+            tsSiguiente.Enabled = True
+            tsRotarDerecha.Enabled = True
+            tsRotarIzquierda.Enabled = True
+            tsZoomAlejar.Enabled = True
+            tsZoomAcercar.Enabled = True
+            tsEscalaReal.Enabled = True
+            tsExtender.Enabled = True
+
+            ImagenSiguienteContextual.Enabled = True
+            ImagenAnteriorContextual.Enabled = True
+            RotarDerechaContextual.Enabled = True
+            RotarIzquierdaContextual.Enabled = True
+            ZoomAlejarContextual.Enabled = True
+            ZoomAcercarContextual.Enabled = True
+            EscalaRealContextual.Enabled = True
+            AjustarTamañoAVistaContextual.Enabled = True
         End If
     End Sub
 
@@ -78,7 +105,7 @@ Public Class Visor
         End If
     End Sub
 
-    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles tsSiguiente.Click
         fotoSiguiente()
     End Sub
 
@@ -161,7 +188,7 @@ Public Class Visor
         rotarIzquierda()
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RotarIzquiedaToolStripMenuItem.Click
         rotarIzquierda()
     End Sub
 
@@ -202,7 +229,7 @@ Public Class Visor
     End Sub
 
     Private Sub pboxFoto_MouseMove(sender As Object, e As MouseEventArgs) Handles pboxFoto.MouseMove
-        If drag Then
+        If drag And v.Num_Fotos > 0 Then
             pboxFoto.Image = v.Despl(e.Location.X + pboxFoto.Location.X - offset.X, e.Location.Y + pboxFoto.Location.Y - offset.Y)
         End If
     End Sub
@@ -213,19 +240,19 @@ Public Class Visor
     End Sub
 
     Private Sub tsEscalaReal_Click(sender As Object, e As EventArgs) Handles tsEscalaReal.Click
-        pboxFoto.Image = v.Zoom(0)
+        EscalaReal()
     End Sub
 
     Private Sub EscalaRealToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EscalaRealToolStripMenuItem.Click
-        pboxFoto.Image = v.Zoom(0)
+        EscalaReal()
     End Sub
 
     Private Sub tsExtender_Click(sender As Object, e As EventArgs) Handles tsExtender.Click
-        pboxFoto.Image = v.Foto_Actual()
+        AjustarTamanyoAVista()
     End Sub
 
     Private Sub AjustarTamañoAVistaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AjustarTamañoAVistaToolStripMenuItem.Click
-        pboxFoto.Image = v.Foto_Actual()
+        AjustarTamanyoAVista()
     End Sub
 
     Private Sub btnAnyadirImagen_MouseEnter(sender As Object, e As EventArgs) Handles btnAnyadirImagen.MouseEnter
@@ -254,6 +281,78 @@ Public Class Visor
     End Sub
 
     Private Sub Visor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If v.Num_Fotos = 0 Then
+            ImagenSiguienteToolStripMenuItem.Enabled = False
+            ImagenAnteriorToolStripMenuItem.Enabled = False
+            RotarImagenToolStripMenuItem.Enabled = False
+            RotarIzquiedaToolStripMenuItem.Enabled = False
+            ZoomAlejarToolStripMenuItem.Enabled = False
+            ZoomToolStripMenuItem.Enabled = False
+            EscalaRealToolStripMenuItem.Enabled = False
+            AjustarTamañoAVistaToolStripMenuItem.Enabled = False
 
+            tsAnterior.Enabled = False
+            tsSiguiente.Enabled = False
+            tsRotarDerecha.Enabled = False
+            tsRotarIzquierda.Enabled = False
+            tsZoomAlejar.Enabled = False
+            tsZoomAcercar.Enabled = False
+            tsEscalaReal.Enabled = False
+            tsExtender.Enabled = False
+
+            ImagenSiguienteContextual.Enabled = False
+            ImagenAnteriorContextual.Enabled = False
+            RotarDerechaContextual.Enabled = False
+            RotarIzquierdaContextual.Enabled = False
+            ZoomAlejarContextual.Enabled = False
+            ZoomAcercarContextual.Enabled = False
+            EscalaRealContextual.Enabled = False
+            AjustarTamañoAVistaContextual.Enabled = False
+        End If
+    End Sub
+
+    Private Sub AñadirImagenContextual_Click(sender As Object, e As EventArgs) Handles AñadirImagenContextual.Click
+        abrirFotos()
+    End Sub
+
+    Private Sub ImagenSiguienteContextual_Click(sender As Object, e As EventArgs) Handles ImagenSiguienteContextual.Click
+        fotoSiguiente()
+    End Sub
+
+    Private Sub ImagenAnteriorContextual_Click(sender As Object, e As EventArgs) Handles ImagenAnteriorContextual.Click
+        fotoAnterior()
+    End Sub
+
+    Private Sub RotarDerechaContextual_Click(sender As Object, e As EventArgs) Handles RotarDerechaContextual.Click
+        rotarDerecha()
+    End Sub
+
+    Private Sub RotarIzquierdaContextual_Click(sender As Object, e As EventArgs) Handles RotarIzquierdaContextual.Click
+        rotarIzquierda()
+    End Sub
+
+    Private Sub ZoomAlejarContextual_Click(sender As Object, e As EventArgs) Handles ZoomAlejarContextual.Click
+        zoomAlejar()
+    End Sub
+
+    Private Sub ZoomAcercarContextual_Click(sender As Object, e As EventArgs) Handles ZoomAcercarContextual.Click
+        zoomAcercar()
+    End Sub
+
+    Private Sub EscalaRealContextual_Click(sender As Object, e As EventArgs) Handles EscalaRealContextual.Click
+        EscalaReal()
+    End Sub
+
+    Private Sub AjustarTamañoAVistaContextual_Click(sender As Object, e As EventArgs) Handles AjustarTamañoAVistaContextual.Click
+        AjustarTamanyoAVista()
+    End Sub
+
+    Private Sub EscalaReal()
+        pboxFoto.Image = v.Zoom(0)
+    End Sub
+
+    Private Sub AjustarTamanyoAVista()
+        pboxFoto.Image = v.Foto_Actual()
+        pboxFoto.SizeMode = PictureBoxSizeMode.Zoom
     End Sub
 End Class
