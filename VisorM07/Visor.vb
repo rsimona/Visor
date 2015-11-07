@@ -353,6 +353,5 @@ Public Class Visor
 
     Private Sub AjustarTamanyoAVista()
         pboxFoto.Image = v.Foto_Actual()
-        pboxFoto.SizeMode = PictureBoxSizeMode.Zoom
     End Sub
 End Class
