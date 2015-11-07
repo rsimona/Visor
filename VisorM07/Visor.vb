@@ -33,6 +33,8 @@ Public Class Visor
             pboxFoto.Image = v.Get_Foto(v.Num_Actual)
             pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
             pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+
+            pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
         End If
     End Sub
 
@@ -48,6 +50,10 @@ Public Class Visor
         fotoAnterior()
     End Sub
 
+    Private Sub pbFlechaAnterior_Click(sender As Object, e As EventArgs) Handles pbFlechaAnterior.Click
+        fotoAnterior()
+    End Sub
+
     Private Sub fotoAnterior()
         If Not pbMiniaturaAnterior.Image Is Nothing Then
             v.Prev_Foto()
@@ -56,13 +62,17 @@ Public Class Visor
 
             If v.Num_Actual - 1 >= 0 Then
                 pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
             Else
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior_gris
                 pbMiniaturaAnterior.Image = Nothing
             End If
 
             If v.Num_Actual + 1 < v.Num_Fotos Then
                 pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
             Else
+                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent_gris
                 pbMiniaturaSiguiente.Image = Nothing
             End If
         End If
@@ -76,6 +86,10 @@ Public Class Visor
         fotoSiguiente()
     End Sub
 
+    Private Sub pbFlechaSiguiente_Click(sender As Object, e As EventArgs) Handles pbFlechaSiguiente.Click
+        fotoSiguiente()
+    End Sub
+
     Private Sub fotoSiguiente()
         If Not pbMiniaturaSiguiente.Image Is Nothing Then
             v.Next_Foto()
@@ -84,13 +98,17 @@ Public Class Visor
 
             If v.Num_Actual - 1 >= 0 Then
                 pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
             Else
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior_gris
                 pbMiniaturaAnterior.Image = Nothing
             End If
 
             If v.Num_Actual + 1 < v.Num_Fotos Then
                 pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
             Else
+                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent_gris
                 pbMiniaturaSiguiente.Image = Nothing
             End If
         End If
@@ -219,4 +237,23 @@ Public Class Visor
         btnAnyadirImagen.FlatAppearance.BorderSize = 0
     End Sub
 
+    Private Sub pbFlechaSiguiente_MouseEnter(sender As Object, e As EventArgs) Handles pbFlechaSiguiente.MouseEnter
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub pbFlechaAnterior_MouseEnter(sender As Object, e As EventArgs) Handles pbFlechaAnterior.MouseEnter
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub pbFlechaSiguiente_MouseLeave(sender As Object, e As EventArgs) Handles pbFlechaSiguiente.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub pbFlechaAnterior_MouseLeave(sender As Object, e As EventArgs) Handles pbFlechaAnterior.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Visor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
