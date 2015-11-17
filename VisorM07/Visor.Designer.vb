@@ -36,6 +36,7 @@ Partial Class Visor
         Me.ZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjustarTamañoAVistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -46,6 +47,8 @@ Partial Class Visor
         Me.tsZoomAlejar = New System.Windows.Forms.ToolStripButton()
         Me.tsZoomAcercar = New System.Windows.Forms.ToolStripButton()
         Me.tsExtender = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsReset = New System.Windows.Forms.ToolStripButton()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.pbFlechaAnterior = New System.Windows.Forms.PictureBox()
         Me.pbFlechaSiguiente = New System.Windows.Forms.PictureBox()
@@ -62,6 +65,7 @@ Partial Class Visor
         Me.ZoomAlejarContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomAcercarContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjustarTamañoAVistaContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarTodasLasImágenesDelVisorContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblNumFoto = New System.Windows.Forms.Label()
         Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
         Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
@@ -114,7 +118,7 @@ Partial Class Visor
         '
         'VistaToolStripMenuItem
         '
-        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.RotarIzquiedaToolStripMenuItem, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem})
+        Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.RotarIzquiedaToolStripMenuItem, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem, Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem})
         Me.VistaToolStripMenuItem.Name = "VistaToolStripMenuItem"
         Me.VistaToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.VistaToolStripMenuItem.Text = "&Vista"
@@ -124,7 +128,7 @@ Partial Class Visor
         Me.ImagenSiguienteToolStripMenuItem.Image = CType(resources.GetObject("ImagenSiguienteToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ImagenSiguienteToolStripMenuItem.Name = "ImagenSiguienteToolStripMenuItem"
         Me.ImagenSiguienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.ImagenSiguienteToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ImagenSiguienteToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.ImagenSiguienteToolStripMenuItem.Text = "Imagen &Siguiente"
         '
         'ImagenAnteriorToolStripMenuItem
@@ -132,7 +136,7 @@ Partial Class Visor
         Me.ImagenAnteriorToolStripMenuItem.Image = CType(resources.GetObject("ImagenAnteriorToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ImagenAnteriorToolStripMenuItem.Name = "ImagenAnteriorToolStripMenuItem"
         Me.ImagenAnteriorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.ImagenAnteriorToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ImagenAnteriorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.ImagenAnteriorToolStripMenuItem.Text = "Imagen &Anterior"
         '
         'RotarImagenToolStripMenuItem
@@ -140,14 +144,14 @@ Partial Class Visor
         Me.RotarImagenToolStripMenuItem.Image = CType(resources.GetObject("RotarImagenToolStripMenuItem.Image"), System.Drawing.Image)
         Me.RotarImagenToolStripMenuItem.Name = "RotarImagenToolStripMenuItem"
         Me.RotarImagenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.RotarImagenToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.RotarImagenToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.RotarImagenToolStripMenuItem.Text = "Rotar &derecha"
         '
         'RotarIzquiedaToolStripMenuItem
         '
         Me.RotarIzquiedaToolStripMenuItem.Image = CType(resources.GetObject("RotarIzquiedaToolStripMenuItem.Image"), System.Drawing.Image)
         Me.RotarIzquiedaToolStripMenuItem.Name = "RotarIzquiedaToolStripMenuItem"
-        Me.RotarIzquiedaToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.RotarIzquiedaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.RotarIzquiedaToolStripMenuItem.Text = "Rotar &izquierda"
         '
         'ZoomToolStripMenuItem
@@ -155,7 +159,7 @@ Partial Class Visor
         Me.ZoomToolStripMenuItem.Image = CType(resources.GetObject("ZoomToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
         Me.ZoomToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.ZoomToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ZoomToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.ZoomToolStripMenuItem.Text = "&Zoom Acercar"
         '
         'ZoomAlejarToolStripMenuItem
@@ -163,22 +167,29 @@ Partial Class Visor
         Me.ZoomAlejarToolStripMenuItem.Image = CType(resources.GetObject("ZoomAlejarToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ZoomAlejarToolStripMenuItem.Name = "ZoomAlejarToolStripMenuItem"
         Me.ZoomAlejarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.ZoomAlejarToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ZoomAlejarToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.ZoomAlejarToolStripMenuItem.Text = "Z&oom Alejar"
         '
         'AjustarTamañoAVistaToolStripMenuItem
         '
         Me.AjustarTamañoAVistaToolStripMenuItem.Image = CType(resources.GetObject("AjustarTamañoAVistaToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AjustarTamañoAVistaToolStripMenuItem.Name = "AjustarTamañoAVistaToolStripMenuItem"
-        Me.AjustarTamañoAVistaToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.AjustarTamañoAVistaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.AjustarTamañoAVistaToolStripMenuItem.Text = "Ajustar tamaño a Vista"
+        '
+        'EliminarTodasLasImágenesDelVisorToolStripMenuItem
+        '
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image = CType(resources.GetObject("EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Name = "EliminarTodasLasImágenesDelVisorToolStripMenuItem"
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Text = "Eliminar todas las imágenes del visor"
         '
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(30, 30)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.tsSiguiente, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsExtender})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.tsSiguiente, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsExtender, Me.ToolStripSeparator2, Me.tsReset})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 534)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 1, 0)
@@ -272,6 +283,21 @@ Partial Class Visor
         Me.tsExtender.Text = "ToolStripButton2"
         Me.tsExtender.ToolTipText = "Ajustar tamaño a vista"
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 37)
+        '
+        'tsReset
+        '
+        Me.tsReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsReset.Image = CType(resources.GetObject("tsReset.Image"), System.Drawing.Image)
+        Me.tsReset.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsReset.Name = "tsReset"
+        Me.tsReset.Size = New System.Drawing.Size(34, 34)
+        Me.tsReset.Text = "ToolStripButton1"
+        Me.tsReset.ToolTipText = "Eliminar todas las imágenes del visor"
+        '
         'pbFlechaAnterior
         '
         Me.pbFlechaAnterior.Image = Global.VisorM07.My.Resources.Resources.flecha_anterior_gris
@@ -333,65 +359,72 @@ Partial Class Visor
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirImagenContextual, Me.ImagenSiguienteContextual, Me.ImagenAnteriorContextual, Me.RotarDerechaContextual, Me.RotarIzquierdaContextual, Me.ZoomAlejarContextual, Me.ZoomAcercarContextual, Me.AjustarTamañoAVistaContextual})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirImagenContextual, Me.ImagenSiguienteContextual, Me.ImagenAnteriorContextual, Me.RotarDerechaContextual, Me.RotarIzquierdaContextual, Me.ZoomAlejarContextual, Me.ZoomAcercarContextual, Me.AjustarTamañoAVistaContextual, Me.EliminarTodasLasImágenesDelVisorContextual})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(192, 180)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(268, 224)
         '
         'AñadirImagenContextual
         '
         Me.AñadirImagenContextual.Image = CType(resources.GetObject("AñadirImagenContextual.Image"), System.Drawing.Image)
         Me.AñadirImagenContextual.Name = "AñadirImagenContextual"
-        Me.AñadirImagenContextual.Size = New System.Drawing.Size(191, 22)
+        Me.AñadirImagenContextual.Size = New System.Drawing.Size(267, 22)
         Me.AñadirImagenContextual.Text = "Añadir imagen"
         '
         'ImagenSiguienteContextual
         '
         Me.ImagenSiguienteContextual.Image = CType(resources.GetObject("ImagenSiguienteContextual.Image"), System.Drawing.Image)
         Me.ImagenSiguienteContextual.Name = "ImagenSiguienteContextual"
-        Me.ImagenSiguienteContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ImagenSiguienteContextual.Size = New System.Drawing.Size(267, 22)
         Me.ImagenSiguienteContextual.Text = "Imagen Siguiente"
         '
         'ImagenAnteriorContextual
         '
         Me.ImagenAnteriorContextual.Image = CType(resources.GetObject("ImagenAnteriorContextual.Image"), System.Drawing.Image)
         Me.ImagenAnteriorContextual.Name = "ImagenAnteriorContextual"
-        Me.ImagenAnteriorContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ImagenAnteriorContextual.Size = New System.Drawing.Size(267, 22)
         Me.ImagenAnteriorContextual.Text = "Imagen Anterior"
         '
         'RotarDerechaContextual
         '
         Me.RotarDerechaContextual.Image = CType(resources.GetObject("RotarDerechaContextual.Image"), System.Drawing.Image)
         Me.RotarDerechaContextual.Name = "RotarDerechaContextual"
-        Me.RotarDerechaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.RotarDerechaContextual.Size = New System.Drawing.Size(267, 22)
         Me.RotarDerechaContextual.Text = "Rotar derecha"
         '
         'RotarIzquierdaContextual
         '
         Me.RotarIzquierdaContextual.Image = CType(resources.GetObject("RotarIzquierdaContextual.Image"), System.Drawing.Image)
         Me.RotarIzquierdaContextual.Name = "RotarIzquierdaContextual"
-        Me.RotarIzquierdaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.RotarIzquierdaContextual.Size = New System.Drawing.Size(267, 22)
         Me.RotarIzquierdaContextual.Text = "Rotar izquierda"
         '
         'ZoomAlejarContextual
         '
         Me.ZoomAlejarContextual.Image = CType(resources.GetObject("ZoomAlejarContextual.Image"), System.Drawing.Image)
         Me.ZoomAlejarContextual.Name = "ZoomAlejarContextual"
-        Me.ZoomAlejarContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ZoomAlejarContextual.Size = New System.Drawing.Size(267, 22)
         Me.ZoomAlejarContextual.Text = "Zoom Alejar"
         '
         'ZoomAcercarContextual
         '
         Me.ZoomAcercarContextual.Image = CType(resources.GetObject("ZoomAcercarContextual.Image"), System.Drawing.Image)
         Me.ZoomAcercarContextual.Name = "ZoomAcercarContextual"
-        Me.ZoomAcercarContextual.Size = New System.Drawing.Size(191, 22)
+        Me.ZoomAcercarContextual.Size = New System.Drawing.Size(267, 22)
         Me.ZoomAcercarContextual.Text = "Zoom Acercar"
         '
         'AjustarTamañoAVistaContextual
         '
         Me.AjustarTamañoAVistaContextual.Image = CType(resources.GetObject("AjustarTamañoAVistaContextual.Image"), System.Drawing.Image)
         Me.AjustarTamañoAVistaContextual.Name = "AjustarTamañoAVistaContextual"
-        Me.AjustarTamañoAVistaContextual.Size = New System.Drawing.Size(191, 22)
+        Me.AjustarTamañoAVistaContextual.Size = New System.Drawing.Size(267, 22)
         Me.AjustarTamañoAVistaContextual.Text = "Ajustar tamaño a vista"
+        '
+        'EliminarTodasLasImágenesDelVisorContextual
+        '
+        Me.EliminarTodasLasImágenesDelVisorContextual.Image = CType(resources.GetObject("EliminarTodasLasImágenesDelVisorContextual.Image"), System.Drawing.Image)
+        Me.EliminarTodasLasImágenesDelVisorContextual.Name = "EliminarTodasLasImágenesDelVisorContextual"
+        Me.EliminarTodasLasImágenesDelVisorContextual.Size = New System.Drawing.Size(267, 22)
+        Me.EliminarTodasLasImágenesDelVisorContextual.Text = "Eliminar todas las imágenes del visor"
         '
         'lblNumFoto
         '
@@ -529,4 +562,8 @@ Partial Class Visor
     Friend WithEvents pbFlechaAnterior As PictureBox
     Friend WithEvents pbFlechaSiguiente As PictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents EliminarTodasLasImágenesDelVisorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents tsReset As ToolStripButton
+    Friend WithEvents EliminarTodasLasImágenesDelVisorContextual As ToolStripMenuItem
 End Class

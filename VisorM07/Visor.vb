@@ -57,6 +57,7 @@ Public Class Visor
                 ZoomAlejarToolStripMenuItem.Enabled = True
                 ZoomToolStripMenuItem.Enabled = True
                 AjustarTamañoAVistaToolStripMenuItem.Enabled = True
+                EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = True
 
                 tsAnterior.Enabled = True
                 tsSiguiente.Enabled = True
@@ -65,6 +66,7 @@ Public Class Visor
                 tsZoomAlejar.Enabled = True
                 tsZoomAcercar.Enabled = True
                 tsExtender.Enabled = True
+                tsReset.Enabled = True
 
                 ImagenSiguienteContextual.Enabled = True
                 ImagenAnteriorContextual.Enabled = True
@@ -73,9 +75,11 @@ Public Class Visor
                 ZoomAlejarContextual.Enabled = True
                 ZoomAcercarContextual.Enabled = True
                 AjustarTamañoAVistaContextual.Enabled = True
+                EliminarTodasLasImágenesDelVisorContextual.Enabled = True
+
             Catch ex As Exception
-                'btnAnyadirImagen.Visible = True
-                'MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
+                btnAnyadirImagen.Visible = True
+                MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
             End Try
 
         End If
@@ -243,6 +247,18 @@ Public Class Visor
         AjustarTamanyoAVista()
     End Sub
 
+    Private Sub EliminarTodasLasImágenesDelVisorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarTodasLasImágenesDelVisorToolStripMenuItem.Click
+        resetearVisor()
+    End Sub
+
+    Private Sub tsReset_Click(sender As Object, e As EventArgs) Handles tsReset.Click
+        resetearVisor()
+    End Sub
+
+    Private Sub EliminarTodasLasImágenesDelVisorToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EliminarTodasLasImágenesDelVisorContextual.Click
+        resetearVisor()
+    End Sub
+
     Private Sub btnAnyadirImagen_MouseEnter(sender As Object, e As EventArgs) Handles btnAnyadirImagen.MouseEnter
         btnAnyadirImagen.FlatAppearance.BorderSize = 1
         btnAnyadirImagen.FlatAppearance.BorderColor = Color.DodgerBlue
@@ -277,6 +293,7 @@ Public Class Visor
             ZoomAlejarToolStripMenuItem.Enabled = False
             ZoomToolStripMenuItem.Enabled = False
             AjustarTamañoAVistaToolStripMenuItem.Enabled = False
+            EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = False
 
             tsAnterior.Enabled = False
             tsSiguiente.Enabled = False
@@ -285,6 +302,7 @@ Public Class Visor
             tsZoomAlejar.Enabled = False
             tsZoomAcercar.Enabled = False
             tsExtender.Enabled = False
+            tsReset.Enabled = False
 
             ImagenSiguienteContextual.Enabled = False
             ImagenAnteriorContextual.Enabled = False
@@ -293,6 +311,7 @@ Public Class Visor
             ZoomAlejarContextual.Enabled = False
             ZoomAcercarContextual.Enabled = False
             AjustarTamañoAVistaContextual.Enabled = False
+            EliminarTodasLasImágenesDelVisorContextual.Enabled = False
         End If
     End Sub
 
@@ -395,4 +414,49 @@ Public Class Visor
         End If
 
     End Sub
+
+    Private Sub resetearVisor()
+        v = New VisorFoto(575, 350)
+        btnAnyadirImagen.Visible = True
+        pboxFoto.Image = Nothing
+        pbMiniaturaActual.Image = Nothing
+        pbMiniaturaAnterior.Image = Nothing
+        pbMiniaturaSiguiente.Image = Nothing
+        lblNumFoto.Text = "0 / 0"
+        pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior_gris
+        pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent_gris
+        pbFlechaAnterior.Enabled = False
+        pbFlechaSiguiente.Enabled = False
+
+        If v.Num_Fotos = 0 Then
+            ImagenSiguienteToolStripMenuItem.Enabled = False
+            ImagenAnteriorToolStripMenuItem.Enabled = False
+            RotarImagenToolStripMenuItem.Enabled = False
+            RotarIzquiedaToolStripMenuItem.Enabled = False
+            ZoomAlejarToolStripMenuItem.Enabled = False
+            ZoomToolStripMenuItem.Enabled = False
+            AjustarTamañoAVistaToolStripMenuItem.Enabled = False
+            EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = False
+
+            tsAnterior.Enabled = False
+            tsSiguiente.Enabled = False
+            tsRotarDerecha.Enabled = False
+            tsRotarIzquierda.Enabled = False
+            tsZoomAlejar.Enabled = False
+            tsZoomAcercar.Enabled = False
+            tsExtender.Enabled = False
+            tsReset.Enabled = False
+
+            ImagenSiguienteContextual.Enabled = False
+            ImagenAnteriorContextual.Enabled = False
+            RotarDerechaContextual.Enabled = False
+            RotarIzquierdaContextual.Enabled = False
+            ZoomAlejarContextual.Enabled = False
+            ZoomAcercarContextual.Enabled = False
+            AjustarTamañoAVistaContextual.Enabled = False
+            EliminarTodasLasImágenesDelVisorContextual.Enabled = False
+        End If
+    End Sub
+
+
 End Class
