@@ -1,4 +1,5 @@
-﻿Imports Visor
+﻿Imports System.ComponentModel
+Imports Visor
 
 Public Class Visor
     Dim v As VisorFoto = New VisorFoto(575, 330)
@@ -20,47 +21,54 @@ Public Class Visor
     Private Sub abrirFotos()
 
         OpenFileDialog1.Title = "Seleccionar imágenes a importar al visor"
-        OpenFileDialog1.Filter = "Imagen|*.jpg;*.gif;*.png"
+        OpenFileDialog1.Filter = "Imagen|*.jpg;*.gif;*.png|Todos los archivos|*.*"
         OpenFileDialog1.FileName = ""
+        OpenFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)
 
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
-            btnAnyadirImagen.Visible = False
-            For Each foto In OpenFileDialog1.FileNames
-                v.Agregar_Foto(Bitmap.FromFile(foto))
-            Next
+            Try
+                btnAnyadirImagen.Visible = False
+                For Each foto In OpenFileDialog1.FileNames
+                    v.Agregar_Foto(Bitmap.FromFile(foto))
+                Next
 
-            v.Num_Actual = v.Num_Fotos - 1
-            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
-            pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                v.Num_Actual = v.Num_Fotos - 1
+                pboxFoto.Image = v.Get_Foto(v.Num_Actual)
+                pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
 
-            If v.Num_Fotos > 1 Then
-                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
-            End If
+                If v.Num_Fotos > 1 Then
+                    pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+                End If
 
-            ImagenSiguienteToolStripMenuItem.Enabled = True
-            ImagenAnteriorToolStripMenuItem.Enabled = True
-            RotarImagenToolStripMenuItem.Enabled = True
-            RotarIzquiedaToolStripMenuItem.Enabled = True
-            ZoomAlejarToolStripMenuItem.Enabled = True
-            ZoomToolStripMenuItem.Enabled = True
-            AjustarTamañoAVistaToolStripMenuItem.Enabled = True
+                ImagenSiguienteToolStripMenuItem.Enabled = True
+                ImagenAnteriorToolStripMenuItem.Enabled = True
+                RotarImagenToolStripMenuItem.Enabled = True
+                RotarIzquiedaToolStripMenuItem.Enabled = True
+                ZoomAlejarToolStripMenuItem.Enabled = True
+                ZoomToolStripMenuItem.Enabled = True
+                AjustarTamañoAVistaToolStripMenuItem.Enabled = True
 
-            tsAnterior.Enabled = True
-            tsSiguiente.Enabled = True
-            tsRotarDerecha.Enabled = True
-            tsRotarIzquierda.Enabled = True
-            tsZoomAlejar.Enabled = True
-            tsZoomAcercar.Enabled = True
-            tsExtender.Enabled = True
+                tsAnterior.Enabled = True
+                tsSiguiente.Enabled = True
+                tsRotarDerecha.Enabled = True
+                tsRotarIzquierda.Enabled = True
+                tsZoomAlejar.Enabled = True
+                tsZoomAcercar.Enabled = True
+                tsExtender.Enabled = True
 
-            ImagenSiguienteContextual.Enabled = True
-            ImagenAnteriorContextual.Enabled = True
-            RotarDerechaContextual.Enabled = True
-            RotarIzquierdaContextual.Enabled = True
-            ZoomAlejarContextual.Enabled = True
-            ZoomAcercarContextual.Enabled = True
-            AjustarTamañoAVistaContextual.Enabled = True
+                ImagenSiguienteContextual.Enabled = True
+                ImagenAnteriorContextual.Enabled = True
+                RotarDerechaContextual.Enabled = True
+                RotarIzquierdaContextual.Enabled = True
+                ZoomAlejarContextual.Enabled = True
+                ZoomAcercarContextual.Enabled = True
+                AjustarTamañoAVistaContextual.Enabled = True
+            Catch ex As Exception
+                btnAnyadirImagen.Visible = True
+                MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
+            End Try
+
         End If
     End Sub
 
@@ -349,5 +357,11 @@ Public Class Visor
 
     Private Sub AjustarTamanyoAVista()
         pboxFoto.Image = v.Foto_Actual()
+    End Sub
+
+    Private Sub Visor_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If MessageBox.Show("¿Está seguro que quiere salir del Visor de Imágenes?", "Visor de imágenes", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.No Then
+            e.Cancel = True
+        End If
     End Sub
 End Class

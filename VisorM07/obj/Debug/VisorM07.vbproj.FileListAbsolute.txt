@@ -1,5 +1,4 @@
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\bin\Debug\VisorM07.exe.config
-c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.vbprojResolveAssemblyReference.cache
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.Resources.resources
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.Visor.resources
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.vbproj.GenerateResource.Cache
@@ -10,3 +9,4 @@ c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\bin\Debug
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.exe
 c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.pdb
 C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\bin\Debug\visor.dll
+C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.vbprojResolveAssemblyReference.cache
