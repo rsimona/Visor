@@ -2,7 +2,7 @@
 Imports Visor
 
 Public Class Visor
-    Dim v As VisorFoto = New VisorFoto(575, 330)
+    Dim v As VisorFoto = New VisorFoto(575, 350)
     Dim drag As Boolean = False
     Dim offset As Point
 
@@ -32,13 +32,22 @@ Public Class Visor
                     v.Agregar_Foto(Bitmap.FromFile(foto))
                 Next
 
-                v.Num_Actual = v.Num_Fotos - 1
-                pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-                pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
-                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                v.Num_Actual = 0
+                pboxFoto.Image = v.Foto_Actual
+                pbMiniaturaActual.Image = v.Foto_Actual
+                lblNumFoto.Text = v.Num_Actual + 1 & " / " & v.Num_Fotos
+
+                If v.Num_Fotos = 1 Then
+                    pbFlechaAnterior.Enabled = False
+                    pbFlechaSiguiente.Enabled = False
+                End If
+                gestionarMiniaturaAnteriorSiguiente()
 
                 If v.Num_Fotos > 1 Then
                     pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+                    pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
+                    pbFlechaAnterior.Enabled = True
+                    pbFlechaSiguiente.Enabled = True
                 End If
 
                 ImagenSiguienteToolStripMenuItem.Enabled = True
@@ -65,8 +74,8 @@ Public Class Visor
                 ZoomAcercarContextual.Enabled = True
                 AjustarTamañoAVistaContextual.Enabled = True
             Catch ex As Exception
-                btnAnyadirImagen.Visible = True
-                MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
+                'btnAnyadirImagen.Visible = True
+                'MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
             End Try
 
         End If
@@ -89,27 +98,14 @@ Public Class Visor
     End Sub
 
     Private Sub fotoAnterior()
-        If Not pbMiniaturaAnterior.Image Is Nothing Then
-            v.Prev_Foto()
-            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
 
-            If v.Num_Actual - 1 >= 0 Then
-                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
-                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
-            Else
-                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior_gris
-                pbMiniaturaAnterior.Image = Nothing
-            End If
-
-            If v.Num_Actual + 1 < v.Num_Fotos Then
-                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
-                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
-            Else
-                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent_gris
-                pbMiniaturaSiguiente.Image = Nothing
-            End If
+        If v.Num_Fotos > 1 Then
+            pboxFoto.Image = v.Prev_Foto
+            pbMiniaturaActual.Image = v.Foto_Actual
+            gestionarMiniaturaAnteriorSiguiente()
+            lblNumFoto.Text = v.Num_Actual + 1 & " / " & v.Num_Fotos
         End If
+
     End Sub
 
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles tsSiguiente.Click
@@ -125,26 +121,11 @@ Public Class Visor
     End Sub
 
     Private Sub fotoSiguiente()
-        If Not pbMiniaturaSiguiente.Image Is Nothing Then
-            v.Next_Foto()
-            pboxFoto.Image = v.Get_Foto(v.Num_Actual)
-            pbMiniaturaActual.Image = v.Get_Foto(v.Num_Actual)
-
-            If v.Num_Actual - 1 >= 0 Then
-                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
-                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
-            Else
-                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior_gris
-                pbMiniaturaAnterior.Image = Nothing
-            End If
-
-            If v.Num_Actual + 1 < v.Num_Fotos Then
-                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
-                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
-            Else
-                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent_gris
-                pbMiniaturaSiguiente.Image = Nothing
-            End If
+        If v.Num_Fotos > 1 Then
+            pboxFoto.Image = v.Next_Foto
+            pbMiniaturaActual.Image = v.Foto_Actual
+            gestionarMiniaturaAnteriorSiguiente()
+            lblNumFoto.Text = v.Num_Actual + 1 & " / " & v.Num_Fotos
         End If
     End Sub
 
@@ -363,5 +344,55 @@ Public Class Visor
         If MessageBox.Show("¿Está seguro que quiere salir del Visor de Imágenes?", "Visor de imágenes", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.No Then
             e.Cancel = True
         End If
+    End Sub
+
+    Private Sub gestionarMiniaturaAnteriorSiguiente()
+        If v.Num_Fotos = 1 Then
+            pbMiniaturaAnterior.Image = Nothing
+            pbMiniaturaSiguiente.Image = Nothing
+        ElseIf v.Num_Fotos = 2 Then
+            If v.Num_Actual = 0 Then
+                pbMiniaturaAnterior.Image = Nothing
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            Else
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                pbMiniaturaSiguiente.Image = Nothing
+            End If
+        Else
+            If v.Num_Actual = 0 Then
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Fotos - 1)
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            ElseIf v.Num_Actual = v.Num_Fotos - 1 Then
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                pbMiniaturaSiguiente.Image = v.Get_Foto(0)
+            Else
+                pbMiniaturaAnterior.Image = v.Get_Foto(v.Num_Actual - 1)
+                pbMiniaturaSiguiente.Image = v.Get_Foto(v.Num_Actual + 1)
+            End If
+        End If
+    End Sub
+
+    Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message, keyData As System.Windows.Forms.Keys) As Boolean
+        Select Case keyData
+
+            Case Keys.Right
+                fotoSiguiente()
+                Return True
+
+            Case Keys.Left
+                fotoAnterior()
+                Return True
+
+        End Select
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
+
+    Private Sub Visor_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Subtract Or e.KeyCode = 189 Then
+            zoomAlejar()
+        ElseIf e.KeyCode = Keys.Add Or e.KeyCode = 187 Then
+            zoomAcercar()
+        End If
+
     End Sub
 End Class

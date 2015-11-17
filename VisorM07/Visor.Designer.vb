@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Visor
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Visor
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Visor))
@@ -52,11 +52,7 @@ Partial Class Visor
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
-        Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
-        Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
         Me.btnAnyadirImagen = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AñadirImagenContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagenSiguienteContextual = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,16 +62,21 @@ Partial Class Visor
         Me.ZoomAlejarContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ZoomAcercarContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjustarTamañoAVistaContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.lblNumFoto = New System.Windows.Forms.Label()
+        Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
+        Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
+        Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'msArchivo
@@ -178,7 +179,7 @@ Partial Class Visor
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(30, 30)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsAnyadir, Me.ToolStripSeparator1, Me.tsAnterior, Me.tsSiguiente, Me.tsRotarIzquierda, Me.tsRotarDerecha, Me.tsZoomAlejar, Me.tsZoomAcercar, Me.tsExtender})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 524)
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 534)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 1, 0)
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -274,7 +275,7 @@ Partial Class Visor
         'pbFlechaAnterior
         '
         Me.pbFlechaAnterior.Image = Global.VisorM07.My.Resources.Resources.flecha_anterior_gris
-        Me.pbFlechaAnterior.Location = New System.Drawing.Point(22, 28)
+        Me.pbFlechaAnterior.Location = New System.Drawing.Point(59, 407)
         Me.pbFlechaAnterior.Name = "pbFlechaAnterior"
         Me.pbFlechaAnterior.Size = New System.Drawing.Size(57, 88)
         Me.pbFlechaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -285,7 +286,7 @@ Partial Class Visor
         'pbFlechaSiguiente
         '
         Me.pbFlechaSiguiente.Image = Global.VisorM07.My.Resources.Resources.flecha_seguent_gris
-        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(721, 28)
+        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(702, 407)
         Me.pbFlechaSiguiente.Name = "pbFlechaSiguiente"
         Me.pbFlechaSiguiente.Size = New System.Drawing.Size(57, 88)
         Me.pbFlechaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -302,7 +303,7 @@ Partial Class Visor
         '
         Me.pboxFoto.Location = New System.Drawing.Point(121, 40)
         Me.pboxFoto.Name = "pboxFoto"
-        Me.pboxFoto.Size = New System.Drawing.Size(575, 330)
+        Me.pboxFoto.Size = New System.Drawing.Size(575, 351)
         Me.pboxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pboxFoto.TabIndex = 2
         Me.pboxFoto.TabStop = False
@@ -312,39 +313,6 @@ Partial Class Visor
         Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'pbMiniaturaActual
-        '
-        Me.pbMiniaturaActual.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.pbMiniaturaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbMiniaturaActual.Image = CType(resources.GetObject("pbMiniaturaActual.Image"), System.Drawing.Image)
-        Me.pbMiniaturaActual.Location = New System.Drawing.Point(322, 28)
-        Me.pbMiniaturaActual.Name = "pbMiniaturaActual"
-        Me.pbMiniaturaActual.Size = New System.Drawing.Size(153, 88)
-        Me.pbMiniaturaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbMiniaturaActual.TabIndex = 3
-        Me.pbMiniaturaActual.TabStop = False
-        '
-        'pbMiniaturaAnterior
-        '
-        Me.pbMiniaturaAnterior.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.pbMiniaturaAnterior.Cursor = System.Windows.Forms.Cursors.Default
-        Me.pbMiniaturaAnterior.Location = New System.Drawing.Point(108, 28)
-        Me.pbMiniaturaAnterior.Name = "pbMiniaturaAnterior"
-        Me.pbMiniaturaAnterior.Size = New System.Drawing.Size(153, 88)
-        Me.pbMiniaturaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbMiniaturaAnterior.TabIndex = 4
-        Me.pbMiniaturaAnterior.TabStop = False
-        '
-        'pbMiniaturaSiguiente
-        '
-        Me.pbMiniaturaSiguiente.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.pbMiniaturaSiguiente.Location = New System.Drawing.Point(530, 28)
-        Me.pbMiniaturaSiguiente.Name = "pbMiniaturaSiguiente"
-        Me.pbMiniaturaSiguiente.Size = New System.Drawing.Size(153, 88)
-        Me.pbMiniaturaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbMiniaturaSiguiente.TabIndex = 5
-        Me.pbMiniaturaSiguiente.TabStop = False
         '
         'btnAnyadirImagen
         '
@@ -356,27 +324,12 @@ Partial Class Visor
         Me.btnAnyadirImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnyadirImagen.ForeColor = System.Drawing.Color.DodgerBlue
         Me.btnAnyadirImagen.Image = CType(resources.GetObject("btnAnyadirImagen.Image"), System.Drawing.Image)
-        Me.btnAnyadirImagen.Location = New System.Drawing.Point(217, 69)
+        Me.btnAnyadirImagen.Location = New System.Drawing.Point(203, 70)
         Me.btnAnyadirImagen.Name = "btnAnyadirImagen"
         Me.btnAnyadirImagen.Size = New System.Drawing.Size(400, 275)
         Me.btnAnyadirImagen.TabIndex = 6
         Me.btnAnyadirImagen.Text = "Clic para añadir imágenes"
         Me.btnAnyadirImagen.UseVisualStyleBackColor = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.pbFlechaSiguiente)
-        Me.GroupBox1.Controls.Add(Me.pbFlechaAnterior)
-        Me.GroupBox1.Controls.Add(Me.pbMiniaturaSiguiente)
-        Me.GroupBox1.Controls.Add(Me.pbMiniaturaAnterior)
-        Me.GroupBox1.Controls.Add(Me.pbMiniaturaActual)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 376)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(797, 125)
-        Me.GroupBox1.TabIndex = 7
-        Me.GroupBox1.TabStop = False
         '
         'ContextMenuStrip1
         '
@@ -440,21 +393,80 @@ Partial Class Visor
         Me.AjustarTamañoAVistaContextual.Size = New System.Drawing.Size(191, 22)
         Me.AjustarTamañoAVistaContextual.Text = "Ajustar tamaño a vista"
         '
+        'lblNumFoto
+        '
+        Me.lblNumFoto.AutoSize = True
+        Me.lblNumFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumFoto.Location = New System.Drawing.Point(389, 510)
+        Me.lblNumFoto.Name = "lblNumFoto"
+        Me.lblNumFoto.Size = New System.Drawing.Size(44, 20)
+        Me.lblNumFoto.TabIndex = 8
+        Me.lblNumFoto.Text = "0 / 0"
+        '
+        'pbMiniaturaActual
+        '
+        Me.pbMiniaturaActual.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.pbMiniaturaActual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbMiniaturaActual.Image = CType(resources.GetObject("pbMiniaturaActual.Image"), System.Drawing.Image)
+        Me.pbMiniaturaActual.Location = New System.Drawing.Point(229, 16)
+        Me.pbMiniaturaActual.Name = "pbMiniaturaActual"
+        Me.pbMiniaturaActual.Size = New System.Drawing.Size(113, 78)
+        Me.pbMiniaturaActual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaActual.TabIndex = 3
+        Me.pbMiniaturaActual.TabStop = False
+        '
+        'pbMiniaturaAnterior
+        '
+        Me.pbMiniaturaAnterior.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.pbMiniaturaAnterior.Cursor = System.Windows.Forms.Cursors.Default
+        Me.pbMiniaturaAnterior.Location = New System.Drawing.Point(111, 16)
+        Me.pbMiniaturaAnterior.Name = "pbMiniaturaAnterior"
+        Me.pbMiniaturaAnterior.Size = New System.Drawing.Size(113, 78)
+        Me.pbMiniaturaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaAnterior.TabIndex = 4
+        Me.pbMiniaturaAnterior.TabStop = False
+        '
+        'pbMiniaturaSiguiente
+        '
+        Me.pbMiniaturaSiguiente.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.pbMiniaturaSiguiente.Location = New System.Drawing.Point(347, 16)
+        Me.pbMiniaturaSiguiente.Name = "pbMiniaturaSiguiente"
+        Me.pbMiniaturaSiguiente.Size = New System.Drawing.Size(113, 78)
+        Me.pbMiniaturaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbMiniaturaSiguiente.TabIndex = 5
+        Me.pbMiniaturaSiguiente.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel1.Controls.Add(Me.pbMiniaturaAnterior)
+        Me.Panel1.Controls.Add(Me.pbMiniaturaActual)
+        Me.Panel1.Controls.Add(Me.pbMiniaturaSiguiente)
+        Me.Panel1.Location = New System.Drawing.Point(122, 397)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(574, 110)
+        Me.Panel1.TabIndex = 9
+        '
         'Visor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(822, 561)
+        Me.ClientSize = New System.Drawing.Size(822, 571)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pbFlechaSiguiente)
+        Me.Controls.Add(Me.pbFlechaAnterior)
+        Me.Controls.Add(Me.lblNumFoto)
         Me.Controls.Add(Me.btnAnyadirImagen)
         Me.Controls.Add(Me.pboxFoto)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.msArchivo)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MainMenuStrip = Me.msArchivo
-        Me.MaximumSize = New System.Drawing.Size(838, 600)
-        Me.MinimumSize = New System.Drawing.Size(838, 600)
+        Me.MaximumSize = New System.Drawing.Size(838, 610)
+        Me.MinimumSize = New System.Drawing.Size(838, 610)
         Me.Name = "Visor"
         Me.Text = "Visor de Imágenes"
         Me.msArchivo.ResumeLayout(False)
@@ -464,11 +476,11 @@ Partial Class Visor
         CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -498,15 +510,9 @@ Partial Class Visor
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents pboxFoto As PictureBox
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents pbMiniaturaActual As PictureBox
-    Friend WithEvents pbMiniaturaAnterior As PictureBox
-    Friend WithEvents pbMiniaturaSiguiente As PictureBox
     Friend WithEvents AjustarTamañoAVistaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsExtender As ToolStripButton
     Friend WithEvents btnAnyadirImagen As Button
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents pbFlechaAnterior As PictureBox
-    Friend WithEvents pbFlechaSiguiente As PictureBox
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents AñadirImagenContextual As ToolStripMenuItem
     Friend WithEvents ImagenSiguienteContextual As ToolStripMenuItem
@@ -516,4 +522,11 @@ Partial Class Visor
     Friend WithEvents ZoomAlejarContextual As ToolStripMenuItem
     Friend WithEvents ZoomAcercarContextual As ToolStripMenuItem
     Friend WithEvents AjustarTamañoAVistaContextual As ToolStripMenuItem
+    Friend WithEvents lblNumFoto As Label
+    Friend WithEvents pbMiniaturaActual As PictureBox
+    Friend WithEvents pbMiniaturaAnterior As PictureBox
+    Friend WithEvents pbMiniaturaSiguiente As PictureBox
+    Friend WithEvents pbFlechaAnterior As PictureBox
+    Friend WithEvents pbFlechaSiguiente As PictureBox
+    Friend WithEvents Panel1 As Panel
 End Class
