@@ -599,4 +599,8 @@ Public Class Visor
         lblSoltar.Visible = False
         Me.BackColor = Color.White
     End Sub
+
+    Private Sub InstruccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstruccionesToolStripMenuItem.Click
+        Ayuda.Show()
+    End Sub
 End Class

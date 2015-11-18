@@ -26,39 +26,22 @@ Partial Class Visor
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Visor))
         Me.msArchivo = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImagenSiguienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImagenAnteriorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RotarImagenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RotarIzquiedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AjustarTamañoAVistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReproducirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsAnterior = New System.Windows.Forms.ToolStripButton()
-        Me.tsSiguiente = New System.Windows.Forms.ToolStripButton()
-        Me.tsRotarIzquierda = New System.Windows.Forms.ToolStripButton()
-        Me.tsRotarDerecha = New System.Windows.Forms.ToolStripButton()
-        Me.tsZoomAlejar = New System.Windows.Forms.ToolStripButton()
-        Me.tsZoomAcercar = New System.Windows.Forms.ToolStripButton()
-        Me.tsExtender = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsPlay = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.tsReset = New System.Windows.Forms.ToolStripButton()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.pbFlechaSiguiente = New System.Windows.Forms.PictureBox()
-        Me.pbFlechaAnterior = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.lblNumFoto = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblSoltar = New System.Windows.Forms.Label()
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InstruccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AñadirImagenContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagenSiguienteContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagenAnteriorContextual = New System.Windows.Forms.ToolStripMenuItem()
@@ -69,31 +52,50 @@ Partial Class Visor
         Me.AjustarTamañoAVistaContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarTodasLasImágenesDelVisorContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReprodcirPaseDeDiapositivasContextual = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lblNumFoto = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
         Me.pbMiniaturaActual = New System.Windows.Forms.PictureBox()
         Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
+        Me.pbFlechaSiguiente = New System.Windows.Forms.PictureBox()
+        Me.pbFlechaAnterior = New System.Windows.Forms.PictureBox()
         Me.btnAnyadirImagen = New System.Windows.Forms.Button()
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblSoltar = New System.Windows.Forms.Label()
+        Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
+        Me.tsAnterior = New System.Windows.Forms.ToolStripButton()
+        Me.tsSiguiente = New System.Windows.Forms.ToolStripButton()
+        Me.tsRotarIzquierda = New System.Windows.Forms.ToolStripButton()
+        Me.tsRotarDerecha = New System.Windows.Forms.ToolStripButton()
+        Me.tsZoomAlejar = New System.Windows.Forms.ToolStripButton()
+        Me.tsZoomAcercar = New System.Windows.Forms.ToolStripButton()
+        Me.tsExtender = New System.Windows.Forms.ToolStripButton()
+        Me.tsPlay = New System.Windows.Forms.ToolStripButton()
+        Me.tsReset = New System.Windows.Forms.ToolStripButton()
+        Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImagenSiguienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImagenAnteriorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RotarImagenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RotarIzquiedaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AjustarTamañoAVistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'msArchivo
         '
-        Me.msArchivo.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.VistaToolStripMenuItem, Me.ReproducirToolStripMenuItem})
+        Me.msArchivo.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.VistaToolStripMenuItem, Me.ReproducirToolStripMenuItem, Me.AyudaToolStripMenuItem})
         Me.msArchivo.Location = New System.Drawing.Point(0, 0)
         Me.msArchivo.Name = "msArchivo"
         Me.msArchivo.Size = New System.Drawing.Size(822, 24)
@@ -108,22 +110,6 @@ Partial Class Visor
         Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.ArchivoToolStripMenuItem.Text = "&Archivo"
         '
-        'AbrirToolStripMenuItem
-        '
-        Me.AbrirToolStripMenuItem.Image = CType(resources.GetObject("AbrirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
-        Me.AbrirToolStripMenuItem.Text = "A&ñadir foto(s)"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
-        Me.SalirToolStripMenuItem.Text = "&Salir"
-        '
         'VistaToolStripMenuItem
         '
         Me.VistaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImagenSiguienteToolStripMenuItem, Me.ImagenAnteriorToolStripMenuItem, Me.RotarImagenToolStripMenuItem, Me.RotarIzquiedaToolStripMenuItem, Me.ZoomToolStripMenuItem, Me.ZoomAlejarToolStripMenuItem, Me.AjustarTamañoAVistaToolStripMenuItem, Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem})
@@ -131,80 +117,12 @@ Partial Class Visor
         Me.VistaToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.VistaToolStripMenuItem.Text = "&Vista"
         '
-        'ImagenSiguienteToolStripMenuItem
-        '
-        Me.ImagenSiguienteToolStripMenuItem.Image = CType(resources.GetObject("ImagenSiguienteToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ImagenSiguienteToolStripMenuItem.Name = "ImagenSiguienteToolStripMenuItem"
-        Me.ImagenSiguienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.ImagenSiguienteToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.ImagenSiguienteToolStripMenuItem.Text = "Imagen &Siguiente"
-        '
-        'ImagenAnteriorToolStripMenuItem
-        '
-        Me.ImagenAnteriorToolStripMenuItem.Image = CType(resources.GetObject("ImagenAnteriorToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ImagenAnteriorToolStripMenuItem.Name = "ImagenAnteriorToolStripMenuItem"
-        Me.ImagenAnteriorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.ImagenAnteriorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.ImagenAnteriorToolStripMenuItem.Text = "Imagen &Anterior"
-        '
-        'RotarImagenToolStripMenuItem
-        '
-        Me.RotarImagenToolStripMenuItem.Image = CType(resources.GetObject("RotarImagenToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.RotarImagenToolStripMenuItem.Name = "RotarImagenToolStripMenuItem"
-        Me.RotarImagenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.RotarImagenToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.RotarImagenToolStripMenuItem.Text = "Rotar &derecha"
-        '
-        'RotarIzquiedaToolStripMenuItem
-        '
-        Me.RotarIzquiedaToolStripMenuItem.Image = CType(resources.GetObject("RotarIzquiedaToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.RotarIzquiedaToolStripMenuItem.Name = "RotarIzquiedaToolStripMenuItem"
-        Me.RotarIzquiedaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.RotarIzquiedaToolStripMenuItem.Text = "Rotar &izquierda"
-        '
-        'ZoomToolStripMenuItem
-        '
-        Me.ZoomToolStripMenuItem.Image = CType(resources.GetObject("ZoomToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
-        Me.ZoomToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.ZoomToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.ZoomToolStripMenuItem.Text = "&Zoom Acercar"
-        '
-        'ZoomAlejarToolStripMenuItem
-        '
-        Me.ZoomAlejarToolStripMenuItem.Image = CType(resources.GetObject("ZoomAlejarToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ZoomAlejarToolStripMenuItem.Name = "ZoomAlejarToolStripMenuItem"
-        Me.ZoomAlejarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.ZoomAlejarToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.ZoomAlejarToolStripMenuItem.Text = "Z&oom Alejar"
-        '
-        'AjustarTamañoAVistaToolStripMenuItem
-        '
-        Me.AjustarTamañoAVistaToolStripMenuItem.Image = CType(resources.GetObject("AjustarTamañoAVistaToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.AjustarTamañoAVistaToolStripMenuItem.Name = "AjustarTamañoAVistaToolStripMenuItem"
-        Me.AjustarTamañoAVistaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.AjustarTamañoAVistaToolStripMenuItem.Text = "Ajustar tamaño a Vista"
-        '
-        'EliminarTodasLasImágenesDelVisorToolStripMenuItem
-        '
-        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image = CType(resources.GetObject("EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Name = "EliminarTodasLasImágenesDelVisorToolStripMenuItem"
-        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
-        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Text = "Eliminar todas las imágenes del visor"
-        '
         'ReproducirToolStripMenuItem
         '
         Me.ReproducirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReproducirPaseDeDiapositivasToolStripMenuItem})
         Me.ReproducirToolStripMenuItem.Name = "ReproducirToolStripMenuItem"
         Me.ReproducirToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.ReproducirToolStripMenuItem.Text = "&Reproducir"
-        '
-        'ReproducirPaseDeDiapositivasToolStripMenuItem
-        '
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Image = CType(resources.GetObject("ReproducirPaseDeDiapositivasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Name = "ReproducirPaseDeDiapositivasToolStripMenuItem"
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Text = "&Reproducir pase de diapositivas"
         '
         'ToolStrip1
         '
@@ -220,142 +138,20 @@ Partial Class Visor
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'tsAnyadir
-        '
-        Me.tsAnyadir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsAnyadir.Image = CType(resources.GetObject("tsAnyadir.Image"), System.Drawing.Image)
-        Me.tsAnyadir.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsAnyadir.Name = "tsAnyadir"
-        Me.tsAnyadir.Size = New System.Drawing.Size(34, 34)
-        Me.tsAnyadir.Text = "ToolStripButton1"
-        Me.tsAnyadir.ToolTipText = "Añadir foto(s)"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 37)
-        '
-        'tsAnterior
-        '
-        Me.tsAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsAnterior.Image = CType(resources.GetObject("tsAnterior.Image"), System.Drawing.Image)
-        Me.tsAnterior.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsAnterior.Name = "tsAnterior"
-        Me.tsAnterior.Size = New System.Drawing.Size(34, 34)
-        Me.tsAnterior.Text = "ToolStripButton3"
-        Me.tsAnterior.ToolTipText = "Ver foto anterior"
-        '
-        'tsSiguiente
-        '
-        Me.tsSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsSiguiente.Image = CType(resources.GetObject("tsSiguiente.Image"), System.Drawing.Image)
-        Me.tsSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsSiguiente.Name = "tsSiguiente"
-        Me.tsSiguiente.Size = New System.Drawing.Size(34, 34)
-        Me.tsSiguiente.Text = "ToolStripButton4"
-        Me.tsSiguiente.ToolTipText = "Ver foto siguiente"
-        '
-        'tsRotarIzquierda
-        '
-        Me.tsRotarIzquierda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsRotarIzquierda.Image = CType(resources.GetObject("tsRotarIzquierda.Image"), System.Drawing.Image)
-        Me.tsRotarIzquierda.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsRotarIzquierda.Name = "tsRotarIzquierda"
-        Me.tsRotarIzquierda.Size = New System.Drawing.Size(34, 34)
-        Me.tsRotarIzquierda.Text = "ToolStripButton5"
-        Me.tsRotarIzquierda.ToolTipText = "Rotar 90º a la izquierda"
-        '
-        'tsRotarDerecha
-        '
-        Me.tsRotarDerecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsRotarDerecha.Image = CType(resources.GetObject("tsRotarDerecha.Image"), System.Drawing.Image)
-        Me.tsRotarDerecha.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsRotarDerecha.Name = "tsRotarDerecha"
-        Me.tsRotarDerecha.Size = New System.Drawing.Size(34, 34)
-        Me.tsRotarDerecha.Text = "ToolStripButton6"
-        Me.tsRotarDerecha.ToolTipText = "Rotar foto 90º a la derecha"
-        '
-        'tsZoomAlejar
-        '
-        Me.tsZoomAlejar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsZoomAlejar.Image = CType(resources.GetObject("tsZoomAlejar.Image"), System.Drawing.Image)
-        Me.tsZoomAlejar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsZoomAlejar.Name = "tsZoomAlejar"
-        Me.tsZoomAlejar.Size = New System.Drawing.Size(34, 34)
-        Me.tsZoomAlejar.Text = "ToolStripButton7"
-        Me.tsZoomAlejar.ToolTipText = "Zoom Alejar"
-        '
-        'tsZoomAcercar
-        '
-        Me.tsZoomAcercar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsZoomAcercar.Image = CType(resources.GetObject("tsZoomAcercar.Image"), System.Drawing.Image)
-        Me.tsZoomAcercar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsZoomAcercar.Name = "tsZoomAcercar"
-        Me.tsZoomAcercar.Size = New System.Drawing.Size(34, 34)
-        Me.tsZoomAcercar.Text = "ToolStripButton8"
-        Me.tsZoomAcercar.ToolTipText = "Zoom Acercar"
-        '
-        'tsExtender
-        '
-        Me.tsExtender.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsExtender.Image = CType(resources.GetObject("tsExtender.Image"), System.Drawing.Image)
-        Me.tsExtender.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsExtender.Name = "tsExtender"
-        Me.tsExtender.Size = New System.Drawing.Size(34, 34)
-        Me.tsExtender.Text = "ToolStripButton2"
-        Me.tsExtender.ToolTipText = "Ajustar tamaño a vista"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 37)
         '
-        'tsPlay
-        '
-        Me.tsPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsPlay.Image = CType(resources.GetObject("tsPlay.Image"), System.Drawing.Image)
-        Me.tsPlay.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsPlay.Name = "tsPlay"
-        Me.tsPlay.Size = New System.Drawing.Size(34, 34)
-        Me.tsPlay.Text = "ToolStripButton1"
-        Me.tsPlay.ToolTipText = "Reproducir pase de diapositivas"
-        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 37)
-        '
-        'tsReset
-        '
-        Me.tsReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsReset.Image = CType(resources.GetObject("tsReset.Image"), System.Drawing.Image)
-        Me.tsReset.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsReset.Name = "tsReset"
-        Me.tsReset.Size = New System.Drawing.Size(34, 34)
-        Me.tsReset.Text = "ToolStripButton1"
-        Me.tsReset.ToolTipText = "Eliminar todas las imágenes del visor"
-        '
-        'pbFlechaSiguiente
-        '
-        Me.pbFlechaSiguiente.Image = Global.VisorM07.My.Resources.Resources.flecha_seguent_gris
-        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(702, 407)
-        Me.pbFlechaSiguiente.Name = "pbFlechaSiguiente"
-        Me.pbFlechaSiguiente.Size = New System.Drawing.Size(57, 88)
-        Me.pbFlechaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbFlechaSiguiente.TabIndex = 7
-        Me.pbFlechaSiguiente.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.pbFlechaSiguiente, "Imagen Siguiente")
-        '
-        'pbFlechaAnterior
-        '
-        Me.pbFlechaAnterior.Image = Global.VisorM07.My.Resources.Resources.flecha_anterior_gris
-        Me.pbFlechaAnterior.Location = New System.Drawing.Point(59, 407)
-        Me.pbFlechaAnterior.Name = "pbFlechaAnterior"
-        Me.pbFlechaAnterior.Size = New System.Drawing.Size(57, 88)
-        Me.pbFlechaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbFlechaAnterior.TabIndex = 6
-        Me.pbFlechaAnterior.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.pbFlechaAnterior, "Imagen Anterior")
         '
         'OpenFileDialog1
         '
@@ -373,6 +169,62 @@ Partial Class Visor
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirImagenContextual, Me.ImagenSiguienteContextual, Me.ImagenAnteriorContextual, Me.RotarDerechaContextual, Me.RotarIzquierdaContextual, Me.ZoomAlejarContextual, Me.ZoomAcercarContextual, Me.AjustarTamañoAVistaContextual, Me.EliminarTodasLasImágenesDelVisorContextual, Me.ReprodcirPaseDeDiapositivasContextual})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(268, 224)
+        '
+        'lblNumFoto
+        '
+        Me.lblNumFoto.AutoSize = True
+        Me.lblNumFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumFoto.Location = New System.Drawing.Point(389, 510)
+        Me.lblNumFoto.Name = "lblNumFoto"
+        Me.lblNumFoto.Size = New System.Drawing.Size(44, 20)
+        Me.lblNumFoto.TabIndex = 8
+        Me.lblNumFoto.Text = "0 / 0"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(269, 510)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Anterior"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(499, 510)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(51, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Siguiente"
+        '
+        'lblSoltar
+        '
+        Me.lblSoltar.BackColor = System.Drawing.Color.Transparent
+        Me.lblSoltar.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSoltar.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.lblSoltar.Location = New System.Drawing.Point(18, 40)
+        Me.lblSoltar.Name = "lblSoltar"
+        Me.lblSoltar.Size = New System.Drawing.Size(784, 354)
+        Me.lblSoltar.TabIndex = 12
+        Me.lblSoltar.Text = "Soltar aquí las imágenes"
+        Me.lblSoltar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblSoltar.Visible = False
+        '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InstruccionesToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.AyudaToolStripMenuItem.Text = "A&yuda"
+        '
+        'InstruccionesToolStripMenuItem
+        '
+        Me.InstruccionesToolStripMenuItem.Image = CType(resources.GetObject("InstruccionesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.InstruccionesToolStripMenuItem.Name = "InstruccionesToolStripMenuItem"
+        Me.InstruccionesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1
+        Me.InstruccionesToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.InstruccionesToolStripMenuItem.Text = "&Instrucciones"
         '
         'AñadirImagenContextual
         '
@@ -444,16 +296,6 @@ Partial Class Visor
         Me.ReprodcirPaseDeDiapositivasContextual.Size = New System.Drawing.Size(267, 22)
         Me.ReprodcirPaseDeDiapositivasContextual.Text = "Reprodcir pase de diapositivas"
         '
-        'lblNumFoto
-        '
-        Me.lblNumFoto.AutoSize = True
-        Me.lblNumFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumFoto.Location = New System.Drawing.Point(389, 510)
-        Me.lblNumFoto.Name = "lblNumFoto"
-        Me.lblNumFoto.Size = New System.Drawing.Size(44, 20)
-        Me.lblNumFoto.TabIndex = 8
-        Me.lblNumFoto.Text = "0 / 0"
-        '
         'Panel1
         '
         Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
@@ -499,6 +341,28 @@ Partial Class Visor
         Me.pbMiniaturaSiguiente.TabIndex = 5
         Me.pbMiniaturaSiguiente.TabStop = False
         '
+        'pbFlechaSiguiente
+        '
+        Me.pbFlechaSiguiente.Image = Global.VisorM07.My.Resources.Resources.flecha_seguent_gris
+        Me.pbFlechaSiguiente.Location = New System.Drawing.Point(702, 407)
+        Me.pbFlechaSiguiente.Name = "pbFlechaSiguiente"
+        Me.pbFlechaSiguiente.Size = New System.Drawing.Size(57, 88)
+        Me.pbFlechaSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbFlechaSiguiente.TabIndex = 7
+        Me.pbFlechaSiguiente.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.pbFlechaSiguiente, "Imagen Siguiente")
+        '
+        'pbFlechaAnterior
+        '
+        Me.pbFlechaAnterior.Image = Global.VisorM07.My.Resources.Resources.flecha_anterior_gris
+        Me.pbFlechaAnterior.Location = New System.Drawing.Point(59, 407)
+        Me.pbFlechaAnterior.Name = "pbFlechaAnterior"
+        Me.pbFlechaAnterior.Size = New System.Drawing.Size(57, 88)
+        Me.pbFlechaAnterior.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbFlechaAnterior.TabIndex = 6
+        Me.pbFlechaAnterior.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.pbFlechaAnterior, "Imagen Anterior")
+        '
         'btnAnyadirImagen
         '
         Me.btnAnyadirImagen.AllowDrop = True
@@ -526,36 +390,189 @@ Partial Class Visor
         Me.pboxFoto.TabIndex = 2
         Me.pboxFoto.TabStop = False
         '
-        'Label1
+        'tsAnyadir
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(269, 510)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Anterior"
+        Me.tsAnyadir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsAnyadir.Image = CType(resources.GetObject("tsAnyadir.Image"), System.Drawing.Image)
+        Me.tsAnyadir.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsAnyadir.Name = "tsAnyadir"
+        Me.tsAnyadir.Size = New System.Drawing.Size(34, 34)
+        Me.tsAnyadir.Text = "ToolStripButton1"
+        Me.tsAnyadir.ToolTipText = "Añadir foto(s)"
         '
-        'Label2
+        'tsAnterior
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(499, 510)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 13)
-        Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Siguiente"
+        Me.tsAnterior.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsAnterior.Image = CType(resources.GetObject("tsAnterior.Image"), System.Drawing.Image)
+        Me.tsAnterior.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsAnterior.Name = "tsAnterior"
+        Me.tsAnterior.Size = New System.Drawing.Size(34, 34)
+        Me.tsAnterior.Text = "ToolStripButton3"
+        Me.tsAnterior.ToolTipText = "Ver foto anterior"
         '
-        'lblSoltar
+        'tsSiguiente
         '
-        Me.lblSoltar.BackColor = System.Drawing.Color.Transparent
-        Me.lblSoltar.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSoltar.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.lblSoltar.Location = New System.Drawing.Point(18, 40)
-        Me.lblSoltar.Name = "lblSoltar"
-        Me.lblSoltar.Size = New System.Drawing.Size(784, 354)
-        Me.lblSoltar.TabIndex = 12
-        Me.lblSoltar.Text = "Soltar aquí las imágenes"
-        Me.lblSoltar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblSoltar.Visible = False
+        Me.tsSiguiente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsSiguiente.Image = CType(resources.GetObject("tsSiguiente.Image"), System.Drawing.Image)
+        Me.tsSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsSiguiente.Name = "tsSiguiente"
+        Me.tsSiguiente.Size = New System.Drawing.Size(34, 34)
+        Me.tsSiguiente.Text = "ToolStripButton4"
+        Me.tsSiguiente.ToolTipText = "Ver foto siguiente"
+        '
+        'tsRotarIzquierda
+        '
+        Me.tsRotarIzquierda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsRotarIzquierda.Image = CType(resources.GetObject("tsRotarIzquierda.Image"), System.Drawing.Image)
+        Me.tsRotarIzquierda.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsRotarIzquierda.Name = "tsRotarIzquierda"
+        Me.tsRotarIzquierda.Size = New System.Drawing.Size(34, 34)
+        Me.tsRotarIzquierda.Text = "ToolStripButton5"
+        Me.tsRotarIzquierda.ToolTipText = "Rotar 90º a la izquierda"
+        '
+        'tsRotarDerecha
+        '
+        Me.tsRotarDerecha.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsRotarDerecha.Image = CType(resources.GetObject("tsRotarDerecha.Image"), System.Drawing.Image)
+        Me.tsRotarDerecha.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsRotarDerecha.Name = "tsRotarDerecha"
+        Me.tsRotarDerecha.Size = New System.Drawing.Size(34, 34)
+        Me.tsRotarDerecha.Text = "ToolStripButton6"
+        Me.tsRotarDerecha.ToolTipText = "Rotar foto 90º a la derecha"
+        '
+        'tsZoomAlejar
+        '
+        Me.tsZoomAlejar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsZoomAlejar.Image = CType(resources.GetObject("tsZoomAlejar.Image"), System.Drawing.Image)
+        Me.tsZoomAlejar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsZoomAlejar.Name = "tsZoomAlejar"
+        Me.tsZoomAlejar.Size = New System.Drawing.Size(34, 34)
+        Me.tsZoomAlejar.Text = "ToolStripButton7"
+        Me.tsZoomAlejar.ToolTipText = "Zoom Alejar"
+        '
+        'tsZoomAcercar
+        '
+        Me.tsZoomAcercar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsZoomAcercar.Image = CType(resources.GetObject("tsZoomAcercar.Image"), System.Drawing.Image)
+        Me.tsZoomAcercar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsZoomAcercar.Name = "tsZoomAcercar"
+        Me.tsZoomAcercar.Size = New System.Drawing.Size(34, 34)
+        Me.tsZoomAcercar.Text = "ToolStripButton8"
+        Me.tsZoomAcercar.ToolTipText = "Zoom Acercar"
+        '
+        'tsExtender
+        '
+        Me.tsExtender.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsExtender.Image = CType(resources.GetObject("tsExtender.Image"), System.Drawing.Image)
+        Me.tsExtender.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsExtender.Name = "tsExtender"
+        Me.tsExtender.Size = New System.Drawing.Size(34, 34)
+        Me.tsExtender.Text = "ToolStripButton2"
+        Me.tsExtender.ToolTipText = "Ajustar tamaño a vista"
+        '
+        'tsPlay
+        '
+        Me.tsPlay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsPlay.Image = CType(resources.GetObject("tsPlay.Image"), System.Drawing.Image)
+        Me.tsPlay.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsPlay.Name = "tsPlay"
+        Me.tsPlay.Size = New System.Drawing.Size(34, 34)
+        Me.tsPlay.Text = "ToolStripButton1"
+        Me.tsPlay.ToolTipText = "Reproducir pase de diapositivas"
+        '
+        'tsReset
+        '
+        Me.tsReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsReset.Image = CType(resources.GetObject("tsReset.Image"), System.Drawing.Image)
+        Me.tsReset.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsReset.Name = "tsReset"
+        Me.tsReset.Size = New System.Drawing.Size(34, 34)
+        Me.tsReset.Text = "ToolStripButton1"
+        Me.tsReset.ToolTipText = "Eliminar todas las imágenes del visor"
+        '
+        'AbrirToolStripMenuItem
+        '
+        Me.AbrirToolStripMenuItem.Image = CType(resources.GetObject("AbrirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
+        Me.AbrirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.AbrirToolStripMenuItem.Text = "A&ñadir foto(s)"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.SalirToolStripMenuItem.Text = "&Salir"
+        '
+        'ImagenSiguienteToolStripMenuItem
+        '
+        Me.ImagenSiguienteToolStripMenuItem.Image = CType(resources.GetObject("ImagenSiguienteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ImagenSiguienteToolStripMenuItem.Name = "ImagenSiguienteToolStripMenuItem"
+        Me.ImagenSiguienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.ImagenSiguienteToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.ImagenSiguienteToolStripMenuItem.Text = "Imagen &Siguiente"
+        '
+        'ImagenAnteriorToolStripMenuItem
+        '
+        Me.ImagenAnteriorToolStripMenuItem.Image = CType(resources.GetObject("ImagenAnteriorToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ImagenAnteriorToolStripMenuItem.Name = "ImagenAnteriorToolStripMenuItem"
+        Me.ImagenAnteriorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.ImagenAnteriorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.ImagenAnteriorToolStripMenuItem.Text = "Imagen &Anterior"
+        '
+        'RotarImagenToolStripMenuItem
+        '
+        Me.RotarImagenToolStripMenuItem.Image = CType(resources.GetObject("RotarImagenToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.RotarImagenToolStripMenuItem.Name = "RotarImagenToolStripMenuItem"
+        Me.RotarImagenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.RotarImagenToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.RotarImagenToolStripMenuItem.Text = "Rotar &derecha"
+        '
+        'RotarIzquiedaToolStripMenuItem
+        '
+        Me.RotarIzquiedaToolStripMenuItem.Image = CType(resources.GetObject("RotarIzquiedaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.RotarIzquiedaToolStripMenuItem.Name = "RotarIzquiedaToolStripMenuItem"
+        Me.RotarIzquiedaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.RotarIzquiedaToolStripMenuItem.Text = "Rotar &izquierda"
+        '
+        'ZoomToolStripMenuItem
+        '
+        Me.ZoomToolStripMenuItem.Image = CType(resources.GetObject("ZoomToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ZoomToolStripMenuItem.Name = "ZoomToolStripMenuItem"
+        Me.ZoomToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
+        Me.ZoomToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.ZoomToolStripMenuItem.Text = "&Zoom Acercar"
+        '
+        'ZoomAlejarToolStripMenuItem
+        '
+        Me.ZoomAlejarToolStripMenuItem.Image = CType(resources.GetObject("ZoomAlejarToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ZoomAlejarToolStripMenuItem.Name = "ZoomAlejarToolStripMenuItem"
+        Me.ZoomAlejarToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.ZoomAlejarToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.ZoomAlejarToolStripMenuItem.Text = "Z&oom Alejar"
+        '
+        'AjustarTamañoAVistaToolStripMenuItem
+        '
+        Me.AjustarTamañoAVistaToolStripMenuItem.Image = CType(resources.GetObject("AjustarTamañoAVistaToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AjustarTamañoAVistaToolStripMenuItem.Name = "AjustarTamañoAVistaToolStripMenuItem"
+        Me.AjustarTamañoAVistaToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.AjustarTamañoAVistaToolStripMenuItem.Text = "Ajustar tamaño a Vista"
+        '
+        'EliminarTodasLasImágenesDelVisorToolStripMenuItem
+        '
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image = CType(resources.GetObject("EliminarTodasLasImágenesDelVisorToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Name = "EliminarTodasLasImágenesDelVisorToolStripMenuItem"
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
+        Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Text = "Eliminar todas las imágenes del visor"
+        '
+        'ReproducirPaseDeDiapositivasToolStripMenuItem
+        '
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Image = CType(resources.GetObject("ReproducirPaseDeDiapositivasToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Name = "ReproducirPaseDeDiapositivasToolStripMenuItem"
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Text = "&Reproducir pase de diapositivas"
         '
         'Visor
         '
@@ -588,13 +605,13 @@ Partial Class Visor
         Me.msArchivo.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.pbMiniaturaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbMiniaturaActual, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbMiniaturaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbFlechaAnterior, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pboxFoto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -656,4 +673,6 @@ Partial Class Visor
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents lblSoltar As Label
+    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InstruccionesToolStripMenuItem As ToolStripMenuItem
 End Class

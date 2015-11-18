@@ -11,3 +11,4 @@ c:\users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug
 C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\bin\Debug\visor.dll
 C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.vbprojResolveAssemblyReference.cache
 C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.Pantalla_completa.resources
+C:\Users\rsimo\documents\visual studio 2015\Projects\VisorM07\VisorM07\obj\Debug\VisorM07.Ayuda.resources
