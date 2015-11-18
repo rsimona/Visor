@@ -5,6 +5,7 @@ Public Class Visor
     Dim v As VisorFoto = New VisorFoto(575, 350)
     Dim drag As Boolean = False
     Dim offset As Point
+    Public listaFotos As New ArrayList
 
     Private Sub AbrirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AbrirToolStripMenuItem.Click
         abrirFotos()
@@ -28,6 +29,12 @@ Public Class Visor
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
             Try
                 btnAnyadirImagen.Visible = False
+                Dim i As Integer
+                For i = 0 To OpenFileDialog1.FileNames.Count - 1
+                    Dim file As String = OpenFileDialog1.FileNames(i)
+                    listaFotos.Add(file)
+                Next
+
                 For Each foto In OpenFileDialog1.FileNames
                     v.Agregar_Foto(Bitmap.FromFile(foto))
                 Next
@@ -58,6 +65,7 @@ Public Class Visor
                 ZoomToolStripMenuItem.Enabled = True
                 AjustarTamañoAVistaToolStripMenuItem.Enabled = True
                 EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = True
+                ReproducirPaseDeDiapositivasToolStripMenuItem.Enabled = True
 
                 tsAnterior.Enabled = True
                 tsSiguiente.Enabled = True
@@ -67,6 +75,7 @@ Public Class Visor
                 tsZoomAcercar.Enabled = True
                 tsExtender.Enabled = True
                 tsReset.Enabled = True
+                tsPlay.Enabled = True
 
                 ImagenSiguienteContextual.Enabled = True
                 ImagenAnteriorContextual.Enabled = True
@@ -76,8 +85,10 @@ Public Class Visor
                 ZoomAcercarContextual.Enabled = True
                 AjustarTamañoAVistaContextual.Enabled = True
                 EliminarTodasLasImágenesDelVisorContextual.Enabled = True
+                ReprodcirPaseDeDiapositivasContextual.Enabled = True
 
             Catch ex As Exception
+                ' MsgBox(ex.Message)
                 btnAnyadirImagen.Visible = True
                 MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
             End Try
@@ -259,6 +270,18 @@ Public Class Visor
         resetearVisor()
     End Sub
 
+    Private Sub tsPlay_Click(sender As Object, e As EventArgs) Handles tsPlay.Click
+        mostrarReproductor()
+    End Sub
+
+    Private Sub ReproducirPaseDeDiapositivasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReproducirPaseDeDiapositivasToolStripMenuItem.Click
+        mostrarReproductor()
+    End Sub
+
+    Private Sub ReprodcirPaseDeDiapositivasContextual_Click(sender As Object, e As EventArgs) Handles ReprodcirPaseDeDiapositivasContextual.Click
+        mostrarReproductor()
+    End Sub
+
     Private Sub btnAnyadirImagen_MouseEnter(sender As Object, e As EventArgs) Handles btnAnyadirImagen.MouseEnter
         btnAnyadirImagen.FlatAppearance.BorderSize = 1
         btnAnyadirImagen.FlatAppearance.BorderColor = Color.DodgerBlue
@@ -294,6 +317,7 @@ Public Class Visor
             ZoomToolStripMenuItem.Enabled = False
             AjustarTamañoAVistaToolStripMenuItem.Enabled = False
             EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = False
+            ReproducirPaseDeDiapositivasToolStripMenuItem.Enabled = False
 
             tsAnterior.Enabled = False
             tsSiguiente.Enabled = False
@@ -303,6 +327,7 @@ Public Class Visor
             tsZoomAcercar.Enabled = False
             tsExtender.Enabled = False
             tsReset.Enabled = False
+            tsPlay.Enabled = False
 
             ImagenSiguienteContextual.Enabled = False
             ImagenAnteriorContextual.Enabled = False
@@ -312,6 +337,7 @@ Public Class Visor
             ZoomAcercarContextual.Enabled = False
             AjustarTamañoAVistaContextual.Enabled = False
             EliminarTodasLasImágenesDelVisorContextual.Enabled = False
+            ReprodcirPaseDeDiapositivasContextual.Enabled = False
         End If
     End Sub
 
@@ -437,6 +463,7 @@ Public Class Visor
             ZoomToolStripMenuItem.Enabled = False
             AjustarTamañoAVistaToolStripMenuItem.Enabled = False
             EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = False
+            ReproducirPaseDeDiapositivasToolStripMenuItem.Enabled = False
 
             tsAnterior.Enabled = False
             tsSiguiente.Enabled = False
@@ -446,6 +473,7 @@ Public Class Visor
             tsZoomAcercar.Enabled = False
             tsExtender.Enabled = False
             tsReset.Enabled = False
+            tsPlay.Enabled = False
 
             ImagenSiguienteContextual.Enabled = False
             ImagenAnteriorContextual.Enabled = False
@@ -455,7 +483,28 @@ Public Class Visor
             ZoomAcercarContextual.Enabled = False
             AjustarTamañoAVistaContextual.Enabled = False
             EliminarTodasLasImágenesDelVisorContextual.Enabled = False
+            ReprodcirPaseDeDiapositivasContextual.Enabled = False
         End If
+    End Sub
+
+    Private Sub mostrarReproductor()
+
+        Dim play As New Pantalla_completa
+        play.Location = New Point(0, 0)
+        play.Show()
+
+        Dim i As Integer
+
+        For i = 0 To listaFotos.Count - 1
+                play.BackgroundImage = Bitmap.FromFile(listaFotos(i))
+                'play.Refresh()
+                Threading.Thread.Sleep(500)
+                Application.DoEvents()
+            Next
+
+        play.Close()
+
+
     End Sub
 
 

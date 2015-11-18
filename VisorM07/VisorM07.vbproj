@@ -75,6 +75,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pantalla_completa.Designer.vb">
+      <DependentUpon>Pantalla_completa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pantalla_completa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Visor.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantalla_completa.resx">
+      <DependentUpon>Pantalla_completa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visor.resx">
       <DependentUpon>Visor.vb</DependentUpon>
