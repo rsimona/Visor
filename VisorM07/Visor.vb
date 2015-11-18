@@ -496,10 +496,10 @@ Public Class Visor
         Dim i As Integer
 
         For i = 0 To listaFotos.Count - 1
-                play.BackgroundImage = Bitmap.FromFile(listaFotos(i))
-                'play.Refresh()
-                Threading.Thread.Sleep(500)
-                Application.DoEvents()
+            play.BackgroundImage = Bitmap.FromFile(listaFotos(i))
+            'play.Refresh()
+            Threading.Thread.Sleep(3000)
+            Application.DoEvents()
             Next
 
         play.Close()

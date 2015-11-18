@@ -37,6 +37,8 @@ Partial Class Visor
         Me.ZoomAlejarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjustarTamañoAVistaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReproducirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsAnyadir = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -66,6 +68,7 @@ Partial Class Visor
         Me.ZoomAcercarContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.AjustarTamañoAVistaContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarTodasLasImágenesDelVisorContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReprodcirPaseDeDiapositivasContextual = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblNumFoto = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pbMiniaturaAnterior = New System.Windows.Forms.PictureBox()
@@ -73,9 +76,8 @@ Partial Class Visor
         Me.pbMiniaturaSiguiente = New System.Windows.Forms.PictureBox()
         Me.btnAnyadirImagen = New System.Windows.Forms.Button()
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
-        Me.ReproducirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReprodcirPaseDeDiapositivasContextual = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -188,6 +190,20 @@ Partial Class Visor
         Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Name = "EliminarTodasLasImágenesDelVisorToolStripMenuItem"
         Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Size = New System.Drawing.Size(267, 22)
         Me.EliminarTodasLasImágenesDelVisorToolStripMenuItem.Text = "Eliminar todas las imágenes del visor"
+        '
+        'ReproducirToolStripMenuItem
+        '
+        Me.ReproducirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReproducirPaseDeDiapositivasToolStripMenuItem})
+        Me.ReproducirToolStripMenuItem.Name = "ReproducirToolStripMenuItem"
+        Me.ReproducirToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.ReproducirToolStripMenuItem.Text = "&Reproducir"
+        '
+        'ReproducirPaseDeDiapositivasToolStripMenuItem
+        '
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Image = CType(resources.GetObject("ReproducirPaseDeDiapositivasToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Name = "ReproducirPaseDeDiapositivasToolStripMenuItem"
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Text = "&Reproducir pase de diapositivas"
         '
         'ToolStrip1
         '
@@ -420,6 +436,13 @@ Partial Class Visor
         Me.EliminarTodasLasImágenesDelVisorContextual.Size = New System.Drawing.Size(267, 22)
         Me.EliminarTodasLasImágenesDelVisorContextual.Text = "Eliminar todas las imágenes del visor"
         '
+        'ReprodcirPaseDeDiapositivasContextual
+        '
+        Me.ReprodcirPaseDeDiapositivasContextual.Image = CType(resources.GetObject("ReprodcirPaseDeDiapositivasContextual.Image"), System.Drawing.Image)
+        Me.ReprodcirPaseDeDiapositivasContextual.Name = "ReprodcirPaseDeDiapositivasContextual"
+        Me.ReprodcirPaseDeDiapositivasContextual.Size = New System.Drawing.Size(267, 22)
+        Me.ReprodcirPaseDeDiapositivasContextual.Text = "Reprodcir pase de diapositivas"
+        '
         'lblNumFoto
         '
         Me.lblNumFoto.AutoSize = True
@@ -501,26 +524,23 @@ Partial Class Visor
         Me.pboxFoto.TabIndex = 2
         Me.pboxFoto.TabStop = False
         '
-        'ReproducirToolStripMenuItem
+        'Label1
         '
-        Me.ReproducirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReproducirPaseDeDiapositivasToolStripMenuItem})
-        Me.ReproducirToolStripMenuItem.Name = "ReproducirToolStripMenuItem"
-        Me.ReproducirToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.ReproducirToolStripMenuItem.Text = "&Reproducir"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(269, 517)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Anterior"
         '
-        'ReproducirPaseDeDiapositivasToolStripMenuItem
+        'Label2
         '
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Image = CType(resources.GetObject("ReproducirPaseDeDiapositivasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Name = "ReproducirPaseDeDiapositivasToolStripMenuItem"
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
-        Me.ReproducirPaseDeDiapositivasToolStripMenuItem.Text = "&Reproducir pase de diapositivas"
-        '
-        'ReprodcirPaseDeDiapositivasContextual
-        '
-        Me.ReprodcirPaseDeDiapositivasContextual.Image = CType(resources.GetObject("ReprodcirPaseDeDiapositivasContextual.Image"), System.Drawing.Image)
-        Me.ReprodcirPaseDeDiapositivasContextual.Name = "ReprodcirPaseDeDiapositivasContextual"
-        Me.ReprodcirPaseDeDiapositivasContextual.Size = New System.Drawing.Size(267, 22)
-        Me.ReprodcirPaseDeDiapositivasContextual.Text = "Reprodcir pase de diapositivas"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(501, 515)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(51, 13)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "Siguiente"
         '
         'Visor
         '
@@ -528,6 +548,8 @@ Partial Class Visor
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(822, 571)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pbFlechaSiguiente)
         Me.Controls.Add(Me.pbFlechaAnterior)
@@ -613,4 +635,6 @@ Partial Class Visor
     Friend WithEvents ReproducirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReproducirPaseDeDiapositivasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReprodcirPaseDeDiapositivasContextual As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
