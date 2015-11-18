@@ -89,6 +89,7 @@ Public Class Visor
 
             Catch ex As Exception
                 ' MsgBox(ex.Message)
+                resetearVisor()
                 btnAnyadirImagen.Visible = True
                 MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
             End Try
@@ -497,15 +498,105 @@ Public Class Visor
 
         For i = 0 To listaFotos.Count - 1
             play.BackgroundImage = Bitmap.FromFile(listaFotos(i))
-            'play.Refresh()
+            play.Refresh()
             Threading.Thread.Sleep(3000)
             Application.DoEvents()
-            Next
+        Next
 
         play.Close()
+    End Sub
 
-
+    Private Sub Visor_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop, False) = True Then
+            btnAnyadirImagen.Visible = False
+            lblSoltar.Visible = True
+            Me.BackColor = Color.Yellow
+            e.Effect = DragDropEffects.All
+        End If
     End Sub
 
 
+    Private Sub Visor_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
+        Dim elementosArrastrados As String() = e.Data.GetData(DataFormats.FileDrop)
+
+        Try
+            lblSoltar.Visible = False
+            For Each foto In elementosArrastrados
+                Dim fichero = obtenerNombreFichero(foto)
+                v.Agregar_Foto(Bitmap.FromFile(fichero))
+                listaFotos.Add(fichero)
+            Next
+
+            v.Num_Actual = 0
+            pboxFoto.Image = v.Foto_Actual
+            pbMiniaturaActual.Image = v.Foto_Actual
+            lblNumFoto.Text = v.Num_Actual + 1 & " / " & v.Num_Fotos
+
+            If v.Num_Fotos = 1 Then
+                pbFlechaAnterior.Enabled = False
+                pbFlechaSiguiente.Enabled = False
+            End If
+            gestionarMiniaturaAnteriorSiguiente()
+
+            If v.Num_Fotos > 1 Then
+                pbFlechaAnterior.Image = VisorM07.My.Resources.flecha_anterior
+                pbFlechaSiguiente.Image = VisorM07.My.Resources.flecha_seguent
+                pbFlechaAnterior.Enabled = True
+                pbFlechaSiguiente.Enabled = True
+            End If
+
+            ImagenSiguienteToolStripMenuItem.Enabled = True
+            ImagenAnteriorToolStripMenuItem.Enabled = True
+            RotarImagenToolStripMenuItem.Enabled = True
+            RotarIzquiedaToolStripMenuItem.Enabled = True
+            ZoomAlejarToolStripMenuItem.Enabled = True
+            ZoomToolStripMenuItem.Enabled = True
+            AjustarTamañoAVistaToolStripMenuItem.Enabled = True
+            EliminarTodasLasImágenesDelVisorToolStripMenuItem.Enabled = True
+            ReproducirPaseDeDiapositivasToolStripMenuItem.Enabled = True
+
+            tsAnterior.Enabled = True
+            tsSiguiente.Enabled = True
+            tsRotarDerecha.Enabled = True
+            tsRotarIzquierda.Enabled = True
+            tsZoomAlejar.Enabled = True
+            tsZoomAcercar.Enabled = True
+            tsExtender.Enabled = True
+            tsReset.Enabled = True
+            tsPlay.Enabled = True
+
+            ImagenSiguienteContextual.Enabled = True
+            ImagenAnteriorContextual.Enabled = True
+            RotarDerechaContextual.Enabled = True
+            RotarIzquierdaContextual.Enabled = True
+            ZoomAlejarContextual.Enabled = True
+            ZoomAcercarContextual.Enabled = True
+            AjustarTamañoAVistaContextual.Enabled = True
+            EliminarTodasLasImágenesDelVisorContextual.Enabled = True
+            ReprodcirPaseDeDiapositivasContextual.Enabled = True
+
+            Me.BackColor = Color.White
+
+        Catch ex As Exception
+            ' MsgBox(ex.Message)
+            resetearVisor()
+            btnAnyadirImagen.Visible = True
+            MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
+        End Try
+
+    End Sub
+
+    Public Function obtenerNombreFichero(path As String)
+        Return System.IO.Path.GetFullPath(path)
+    End Function
+
+    Private Sub Visor_DragLeave(sender As Object, e As EventArgs) Handles MyBase.DragLeave
+        If v.Num_Fotos = 0 Then
+            btnAnyadirImagen.Visible = True
+        Else
+            btnAnyadirImagen.Visible = False
+        End If
+        lblSoltar.Visible = False
+        Me.BackColor = Color.White
+    End Sub
 End Class

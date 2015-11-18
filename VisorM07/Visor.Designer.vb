@@ -78,6 +78,7 @@ Partial Class Visor
         Me.pboxFoto = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblSoltar = New System.Windows.Forms.Label()
         Me.msArchivo.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.pbFlechaSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -500,19 +501,20 @@ Partial Class Visor
         '
         'btnAnyadirImagen
         '
+        Me.btnAnyadirImagen.AllowDrop = True
         Me.btnAnyadirImagen.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnAnyadirImagen.FlatAppearance.BorderSize = 0
         Me.btnAnyadirImagen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnAnyadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnAnyadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAnyadirImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnyadirImagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 38.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnyadirImagen.ForeColor = System.Drawing.Color.DodgerBlue
         Me.btnAnyadirImagen.Image = CType(resources.GetObject("btnAnyadirImagen.Image"), System.Drawing.Image)
         Me.btnAnyadirImagen.Location = New System.Drawing.Point(203, 70)
         Me.btnAnyadirImagen.Name = "btnAnyadirImagen"
         Me.btnAnyadirImagen.Size = New System.Drawing.Size(400, 275)
         Me.btnAnyadirImagen.TabIndex = 6
-        Me.btnAnyadirImagen.Text = "Clic para añadir imágenes"
+        Me.btnAnyadirImagen.Text = "Clic o Arrastrar para añadir imágenes"
         Me.btnAnyadirImagen.UseVisualStyleBackColor = False
         '
         'pboxFoto
@@ -542,12 +544,28 @@ Partial Class Visor
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Siguiente"
         '
+        'lblSoltar
+        '
+        Me.lblSoltar.BackColor = System.Drawing.Color.Transparent
+        Me.lblSoltar.Font = New System.Drawing.Font("Microsoft Sans Serif", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSoltar.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.lblSoltar.Location = New System.Drawing.Point(18, 40)
+        Me.lblSoltar.Name = "lblSoltar"
+        Me.lblSoltar.Size = New System.Drawing.Size(784, 354)
+        Me.lblSoltar.TabIndex = 12
+        Me.lblSoltar.Text = "Soltar aquí las imágenes"
+        Me.lblSoltar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblSoltar.Visible = False
+        '
         'Visor
         '
+        Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(822, 571)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.Controls.Add(Me.lblSoltar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
@@ -637,4 +655,5 @@ Partial Class Visor
     Friend WithEvents ReprodcirPaseDeDiapositivasContextual As ToolStripMenuItem
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents lblSoltar As Label
 End Class
