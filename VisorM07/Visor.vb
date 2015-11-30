@@ -581,6 +581,7 @@ Public Class Visor
             ' MsgBox(ex.Message)
             resetearVisor()
             btnAnyadirImagen.Visible = True
+            Me.BackColor = Color.White
             MsgBox("Error al cargar las imágenes." & vbCrLf & "Es posible que esté intentando cargar un fichero que no es una imagen.", MsgBoxStyle.Critical, "Error de carga")
         End Try
 
@@ -602,5 +603,10 @@ Public Class Visor
 
     Private Sub InstruccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstruccionesToolStripMenuItem.Click
         Ayuda.Show()
+    End Sub
+
+    Private Sub Visor_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        pboxFoto.Size = New Size(Me.ClientSize.Width - 242, Me.ClientSize.Height - 250)
+        pboxFoto.Location = New Point(121, 40)
     End Sub
 End Class
